@@ -24,12 +24,12 @@ module.exports = class GameController {
 
     this.socketController.onWin = () => {
       alert('You win !');
-      this.onEndGame();
+      this._endGame();
     };
 
     this.socketController.onLoose = () => {
       alert('You loose !');
-      this.onEndGame();
+      this._endGame();
     };
 
     this.socketController.onStartTurn = () => {
@@ -41,6 +41,10 @@ module.exports = class GameController {
       this._isPlayerTurn = false;
       this.infoView.drawInfo('it\'s the enemy\'s turn');
     };
+  }
+
+  _endGame() {
+    this.onEndGame();
   }
 
   setPlayerBoats(boats) {

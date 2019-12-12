@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#paper, body {
+    background: black;
+}
+
+#form, #game_code {
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin: -175px 0 0 -275px;
+    text-align: center;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(100, 100, 100, 0.1), 0 3px 1px #D4D4D4;
+    color: #555;
+}
+
+#game_code {
+    display: none;
+    font-size: 1.5em;
+    line-height: 50px;
+    height: 50px;
+}
+
+td {
+    min-width: 200px;
+    text-align: left;
+}
+
+tr {
+    height: 40px;
+}
+
+.button {
+    padding: 7px;
+    border-width: 0;
+    background: #3498db;
+    color: white;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+}

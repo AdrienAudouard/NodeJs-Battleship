@@ -1,6 +1,7 @@
 const express = require('express');
 const SocketIO = require('socket.io');
 const configSockets = require('./src/socket.js');
+const os = require("os");
 
 const app = express();
 const port = process.env.PORT || 5555;
@@ -16,5 +17,5 @@ app.get('/', (req, res) => {
 });
 
 configSockets(io);
-
+console.log(os.hostname());
 console.log(`Magic happens at http://localhost:${port}`);

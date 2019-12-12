@@ -1,6 +1,10 @@
+const os = require("os");
+
 module.exports = class SocketController {
   constructor() {
-    this._socket = io('http://localhost:5555');
+    const host = os.hostname();
+    const port = process.env.PORT || 5555;
+    this._socket = io(`${host}:${port}`);
 
     this.onNewMarker = (x, y, touched) => {};
     this.onGamecreated = (code) => {};
