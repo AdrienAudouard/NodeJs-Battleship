@@ -14,10 +14,11 @@ module.exports = class GameView {
     this.boats = [];
     this.draw();
     this.onClick = (x, y) => {};
-
-    window.addEventListener('click', (evt) => {
+    this._onClickListener = (evt) => {
       this._onClick(evt);
-    });
+    };
+
+    window.addEventListener('click', this._onClickListener);
   }
 
   addMarker(marker) {
@@ -102,5 +103,9 @@ module.exports = class GameView {
       this._ctx.lineTo(this._width, y);
       this._ctx.stroke();
     }
+  }
+
+  onDestroy() {
+    window.removeEventListener('click', this._onClickListener);
   }
 };

@@ -44,6 +44,8 @@ module.exports = class GameController {
   }
 
   _endGame() {
+    this.gameView.onDestroy();
+    this.playerGameView.onDestroy();
     this.onEndGame();
   }
 
