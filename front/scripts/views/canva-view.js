@@ -4,7 +4,7 @@ module.exports = class CanvasView {
     this.ctx = this._canvas.getContext("2d");
 
     window.onresize = () => {
-      this._initCanvasSize();
+      //this._initCanvasSize();
     };
 
     this._initCanvasSize();

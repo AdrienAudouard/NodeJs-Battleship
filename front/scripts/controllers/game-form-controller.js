@@ -21,6 +21,8 @@ module.exports = class GameFormController {
         return;
       }
 
+      localStorage.setItem('pseudo', pseudo);
+
       this.onCreate(pseudo, type);
     };
 
@@ -33,7 +35,20 @@ module.exports = class GameFormController {
         return;
       }
 
+      localStorage.setItem('pseudo', pseudo);
+
       this.onJoin(pseudo, id);
+    };
+
+    this.readLocalStorage();
+  }
+
+  readLocalStorage() {
+    const pseudo = localStorage.getItem('pseudo');
+
+    if (pseudo !== undefined) {
+      this._createPseudoInput.value = pseudo;
+      this._joinPseudoInput.value = pseudo;
     }
   }
 

@@ -1,5 +1,6 @@
 const Colors = require('../config/colors');
 const AssetsLoader = require('../utils/assets-loader');
+const MARKER_TYPE = require('../model/marker-type');
 
 module.exports = class GameView {
   constructor(ctx, w, h, x, y) {
@@ -10,7 +11,7 @@ module.exports = class GameView {
     this._y = y;
 
     this.markers = [];
-
+    this.boats = [];
     this.draw();
     this.onClick = (x, y) => {};
 
@@ -45,9 +46,23 @@ module.exports = class GameView {
 
     this._drawBackground();
     this._drawLines();
+    this._drawBoats();
     this._drawMarkers();
 
+
     this._ctx.restore();
+  }
+
+  _drawBoats() {
+    this.boats.forEach((boat) => {
+      const image = AssetsLoader.get(MARKER_TYPE.PLAYER_BOAT);
+      const size = this._width / 10;
+
+      boat.points.forEach((point) => {
+        this._ctx.drawImage(image, point.x * size, point.y * size, size, size);
+      });
+    });
+
   }
 
   _drawMarkers() {
@@ -57,7 +72,7 @@ module.exports = class GameView {
       const x = m.x * (this._width / 10) + (this._width / 10 * 0.3 / 2);
       const y = m.y * (this._heigth / 10) + (this._width / 10 * 0.3 / 2);
 
-      this._ctx.drawImage(AssetsLoader.get('ship'), x, y, size, size);
+      this._ctx.drawImage(AssetsLoader.get(m.type), x, y, size, size);
     });
   }
 

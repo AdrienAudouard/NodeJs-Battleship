@@ -2,13 +2,28 @@ module.exports = class SocketController {
   constructor() {
     this._socket = io('http://localhost:5555');
 
-    this.onNewMarker = (x, y) => {};
+    this.onNewMarker = (x, y, touched) => {};
     this.onGamecreated = (code) => {};
     this.onError = (err) => {};
-    this.onGameStart = () => {};
+    this.onGameStart = (boats) => {};
+    this.onEndTurn = () => {};
+    this.onStartTurn = () => {};
+    this.onBoardHited = (x, y, touched) => {};
 
-    this._socket.on('new_marker', ({x, y}) => {
-      this.onNewMarker(x, y);
+    this._socket.on('player_turn', () => {
+      this.onStartTurn();
+    });
+
+    this._socket.on('player_end_turn', () => {
+      this.onEndTurn();
+    });
+
+    this._socket.on('new_marker', ({x, y, touched, killed}) => {
+      this.onNewMarker(x, y, touched, killed);
+    });
+
+    this._socket.on('board_hited', ({x, y, touched, killed}) => {
+      this.onBoardHited(x, y, touched, killed);
     });
 
     this._socket.on('game_code', (code) => {
@@ -19,8 +34,8 @@ module.exports = class SocketController {
       this.onError('The game do not exists');
     });
 
-    this._socket.on('game_start', () => {
-      this.onGameStart();
+    this._socket.on('game_start', (boats) => {
+      this.onGameStart(boats);
     });
   }
 

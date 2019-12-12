@@ -6,10 +6,6 @@ module.exports = (io) => {
   io.on('connection', (socket) => {
     let gameCode;
 
-    socket.on('new_marker', (m) => {
-      io.emit('new_marker', m);
-    });
-
     socket.on('create_game', ({ pseudo, type }) => {
       gameCode = gameController.createGame(pseudo, type, socket);
       socket.emit('game_code', gameCode);
@@ -17,6 +13,7 @@ module.exports = (io) => {
 
     socket.on('join_game', ({ pseudo, id }) => {
       if (gameController.gameExists(id)) {
+        gameCode = id;
         gameController.joinGame(pseudo, socket, id);
         socket.emit('game_code', gameCode);
 

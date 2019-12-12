@@ -4,6 +4,7 @@ const AssetsLoader = require('./utils/assets-loader');
 const GameController = require('./controllers/game-controller');
 const SocketController = require('./controllers/socket-controller');
 const GameFormController = require('./controllers/game-form-controller');
+const MARKER_TYPE = require('./model/marker-type');
 
 let canvasView;
 let mainGameView;
@@ -14,9 +15,10 @@ let gameFormController;
 
 window.onload = () => {
   AssetsLoader.load([
-    { id: 'target', url: '/assets/black-circe.png' },
-    { id: 'cross', url: '/assets/red-cross.png' },
-    { id: 'ship', url: '/assets/square-ship.png' }
+    { id: MARKER_TYPE.TARGET_NO_HIT, url: '/assets/black-circe.png' },
+    { id: MARKER_TYPE.TARGET_HIT, url: '/assets/red-cross.png' },
+    { id: MARKER_TYPE.PLAYER_BOAT, url: '/assets/square-ship.png' },
+    { id: MARKER_TYPE.KILLED_BOAT, url: '/assets/red-square-ship.png' }
   ], () => {
     socketController = new SocketController();
     gameFormController = new GameFormController();
@@ -37,9 +39,11 @@ window.onload = () => {
       gameFormController.showGameCode(code);
     };
 
-    socketController.onGameStart = () => {
+    socketController.onGameStart = (boats) => {
       gameFormController.hideAllForm();
       initGame();
+      gameController.setPlayerBoats(boats);
+
     };
   });
 };
@@ -50,7 +54,7 @@ const initGame = () => {
   initMainGameView();
   initSecondGameView();
 
-  gameController = new GameController(mainGameView, socketController);
+  gameController = new GameController(mainGameView, secondGameView, socketController);
 };
 
 const initMainGameView = () => {
