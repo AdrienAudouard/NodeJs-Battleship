@@ -12,11 +12,15 @@ module.exports = (io) => {
 
     socket.on('join_game', ({ pseudo, id }) => {
       if (gameController.gameExists(id)) {
-        gameController.joinGame(pseudo, socket, id);
-        socket.emit('game_code', id);
+        if (gameController.canJoin(id)) {
+          gameController.joinGame(pseudo, socket, id);
+          socket.emit('game_code', id);
 
-        if (gameController.canGameStart(id)) {
-          gameController.startGame(id);
+          if (gameController.canGameStart(id)) {
+            gameController.startGame(id);
+          }
+        } else {
+          socket.emit('join_error');
         }
 
       } else {

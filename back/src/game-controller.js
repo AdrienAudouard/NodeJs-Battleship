@@ -26,6 +26,10 @@ module.exports = class GameController {
     return this.games[code] !== undefined;
   }
 
+  canJoin(code) {
+    return this.games[code].canJoin();
+  }
+
   startGame(code) {
     this.games[code].start();
     this.games[code].onEnd = () => {

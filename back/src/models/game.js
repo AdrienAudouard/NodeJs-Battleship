@@ -72,6 +72,10 @@ module.exports = class Game {
     return this.players.length >= this.gameSize;
   }
 
+  canJoin() {
+    return this.players.length < this.gameSize;
+  }
+
   addPlayer(pseudo, socket) {
     this.players.push(new Player(pseudo, socket));
   }
