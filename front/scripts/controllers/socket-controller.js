@@ -4,7 +4,7 @@ module.exports = class SocketController {
   constructor() {
     const host = os.hostname();
     const port = process.env.PORT || 5555;
-    this._socket = io(`${host}:${port}`);
+    this._socket = io();
 
     this.onNewMarker = (x, y, touched) => {};
     this.onGamecreated = (code) => {};

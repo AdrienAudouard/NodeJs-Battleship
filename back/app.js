@@ -17,5 +17,4 @@ app.get('/', (req, res) => {
 });
 
 configSockets(io);
-console.log(os.hostname());
-console.log(`Magic happens at http://localhost:${port}`);
+console.log(`Magic happens at ${os.hostname()}:${port}`);
