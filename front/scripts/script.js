@@ -22,6 +22,7 @@ window.onload = () => {
   ], () => {
     socketController = new SocketController();
     gameFormController = new GameFormController();
+    canvasView = new CanvasView();
 
     socketController.onError = (err) => {
       alert(err);
@@ -49,12 +50,15 @@ window.onload = () => {
 };
 
 const initGame = () => {
-  canvasView = new CanvasView();
-
   initMainGameView();
   initSecondGameView();
 
   gameController = new GameController(mainGameView, secondGameView, socketController);
+
+  gameController.onEndGame = () => {
+    canvasView.clear();
+    gameFormController.showForm();
+  }
 };
 
 const initMainGameView = () => {

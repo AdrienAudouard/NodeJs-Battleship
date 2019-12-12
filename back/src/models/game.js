@@ -8,6 +8,7 @@ module.exports = class Game {
     this.players = [new Player(pseudo, socket)];
     this.gameSize = type.split('-')[0];
     this.turn = 0;
+    this.onEnd = () => {};
   }
 
   start() {
@@ -16,25 +17,40 @@ module.exports = class Game {
       player.socket.emit('game_start', player.board);
 
       player.socket.on('new_marker', ({x, y}) => {
-        const playerID = this.turn % this.gameSize;
-        const ennemyID = (this.turn + 1) % this.gameSize;
-
-        const touched = this.players[ennemyID].hasTouchedABoat(x, y);
-        const killedBoat = touched ? this.players[ennemyID].touchABoat(x, y) : false;
-
-        this.players.forEach((player, index) => {
-          if (playerID === index) {
-            player.socket.emit('new_marker', {x, y, touched, killed: killedBoat});
-          } else {
-            player.socket.emit('board_hited', {x, y, touched, killed: killedBoat});
-          }
-        });
-
-        this.nextTurn();
+        this.onNewMarker(x, y);
       });
     });
 
     this.nextTurn();
+  }
+
+  onNewMarker(x, y) {
+    const playerID = this.turn % this.gameSize;
+    const ennemyID = (this.turn + 1) % this.gameSize;
+    const actualPlayer = this.players[playerID];
+    const ennemy = this.players[ennemyID];
+
+    const touched = ennemy.hasTouchedABoat(x, y);
+    const killedBoat = touched ? ennemy.touchABoat(x, y) : false;
+
+    if (ennemy.isDead()) {
+      actualPlayer.socket.emit('win');
+      ennemy.socket.emit('loose');
+      this.endGame();
+    } else {
+      actualPlayer.socket.emit('new_marker', {x, y, touched, killed: killedBoat});
+      ennemy.socket.emit('board_hited', {x, y, touched, killed: killedBoat});
+
+      this.nextTurn();
+    }
+  }
+
+  endGame() {
+    this.players.forEach((player) => {
+      player.socket.removeAllListeners('new_marker');
+    });
+
+    this.onEnd();
   }
 
   nextTurn() {

@@ -9,9 +9,19 @@ module.exports = class SocketController {
     this.onEndTurn = () => {};
     this.onStartTurn = () => {};
     this.onBoardHited = (x, y, touched) => {};
+    this.onWin = () => {};
+    this.onLoose = () => {};
 
     this._socket.on('player_turn', () => {
       this.onStartTurn();
+    });
+
+    this._socket.on('win', () => {
+      this.onWin();
+    });
+
+    this._socket.on('loose', () => {
+      this.onLoose();
     });
 
     this._socket.on('player_end_turn', () => {

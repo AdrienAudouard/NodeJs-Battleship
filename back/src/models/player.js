@@ -7,6 +7,20 @@ module.exports = class Player {
     this.board = [];
   }
 
+  isDead() {
+    for(let i = 0; i < this.board.length; i++) {
+      const points = this.board[i].points;
+
+      for(let j = 0; j < points.length; j++) {
+        if (!points[j].hited) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
   generateBoard(boats, boardSize = 10) {
     boats.forEach((boat) => {
       let futureBoat = {};
@@ -76,9 +90,6 @@ module.exports = class Player {
     }
 
     const hitedPointsCount = boat.points.filter((p) => p.hited).length;
-
-    console.log(boat);
-    console.log(hitedPointsCount === boat.points.length);
 
     return hitedPointsCount === boat.points.length
   }

@@ -28,5 +28,8 @@ module.exports = class GameController {
 
   startGame(code) {
     this.games[code].start();
+    this.games[code].onEnd = () => {
+      delete this.games[code];
+    };
   }
 };

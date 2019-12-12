@@ -9,6 +9,7 @@ module.exports = class GameController {
     this.socketController = socketController;
     this.infoView = new InfoView(this.playerGameView['_ctx'], this.gameView['_y']);
     this._isPlayerTurn = false;
+    this.onEndGame = () => {};
 
     this.gameView.onClick = (x, y) => {
       if (!this._isPlayerTurn) { return; }
@@ -19,6 +20,16 @@ module.exports = class GameController {
 
     this.socketController.onBoardHited = (x, y, touched, killed) => {
       this.onBoardHited(x, y, touched, killed);
+    };
+
+    this.socketController.onWin = () => {
+      alert('You win !');
+      this.onEndGame();
+    };
+
+    this.socketController.onLoose = () => {
+      alert('You loose !');
+      this.onEndGame();
     };
 
     this.socketController.onStartTurn = () => {

@@ -71,7 +71,7 @@ module.exports = class GameFormController {
   }
 
   showForm() {
-    this._form.style.display = 'flex';
+    this._form.style.display = 'block';
   }
 
   hideAllForm() {
