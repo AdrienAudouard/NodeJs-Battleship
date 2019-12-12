@@ -32,14 +32,15 @@ module.exports = class Game {
 
     const touched = ennemy.hasTouchedABoat(x, y);
     const killedBoat = touched ? ennemy.touchABoat(x, y) : false;
+    const lastBoatTouched = ennemy.lastBoatTouched;
 
     if (ennemy.isDead()) {
       actualPlayer.socket.emit('win');
       ennemy.socket.emit('loose');
       this.endGame();
     } else {
-      actualPlayer.socket.emit('new_marker', {x, y, touched, killed: killedBoat});
-      ennemy.socket.emit('board_hited', {x, y, touched, killed: killedBoat});
+      actualPlayer.socket.emit('new_marker', {x, y, touched, killed: killedBoat, lastBoatTouched});
+      ennemy.socket.emit('board_hited', {x, y, touched, killed: killedBoat, lastBoatTouched});
 
       this.nextTurn();
     }

@@ -3,5 +3,6 @@ module.exports = class Marker {
     this.x = x;
     this.y = y;
     this.type = type;
+    this.tag = null;
   }
 };

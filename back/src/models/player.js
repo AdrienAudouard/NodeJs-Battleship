@@ -5,6 +5,7 @@ module.exports = class Player {
     this.pseudo = pseudo;
     this.socket = socket;
     this.board = [];
+    this.lastBoatTouched = -1;
   }
 
   isDead() {
@@ -70,10 +71,11 @@ module.exports = class Player {
   }
 
   touchABoat(x, y) {
-    const boat = this.board.filter((boat) => {
+    const boat = this.board.filter((boat, index) => {
       for(let j = 0; j < boat.points.length; j++) {
         const point = boat.points[j];
         if (point.x === x && point.y === y) {
+          this.lastBoatTouched = index;
           return true;
         }
       }

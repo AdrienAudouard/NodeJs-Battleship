@@ -16,10 +16,10 @@ module.exports = class GameController {
       this.socketController.addNewMarker(x, y);
     };
 
-    this.socketController.onNewMarker = (x, y, touched, killed) => { this.onNewMarker(x, y, touched, killed); };
+    this.socketController.onNewMarker = (x, y, touched, killed, lastBoatTouched) => { this.onNewMarker(x, y, touched, killed, lastBoatTouched); };
 
-    this.socketController.onBoardHited = (x, y, touched, killed) => {
-      this.onBoardHited(x, y, touched, killed);
+    this.socketController.onBoardHited = (x, y, touched, killed, lastBoatTouched) => {
+      this.onBoardHited(x, y, touched, killed, lastBoatTouched);
     };
 
     this.socketController.onWin = () => {
@@ -54,17 +54,35 @@ module.exports = class GameController {
     this.playerGameView.draw();
   }
 
-  onBoardHited(x, y, touched, killed) {
+  onBoardHited(x, y, touched, killed, lastBoatTouched) {
     const type = touched ? (killed ? MARKER_TYPE.KILLED_BOAT : MARKER_TYPE.TARGET_HIT) : MARKER_TYPE.TARGET_NO_HIT;
+    const marker = new Marker(x, y, type);
 
-    this.playerGameView.addMarker(new Marker(x, y, type));
+    if (touched) {
+      marker.tag = lastBoatTouched;
+    }
+
+    if (killed) {
+      this.playerGameView.markers.filter((m) => m.tag === lastBoatTouched).forEach((m) => m.type = MARKER_TYPE.KILLED_BOAT);
+    }
+
+    this.playerGameView.addMarker(marker);
     this.playerGameView.draw();
   }
 
-  onNewMarker(x, y, touched, killed) {
+  onNewMarker(x, y, touched, killed, lastBoatTouched) {
     const type = touched ? (killed ? MARKER_TYPE.KILLED_BOAT : MARKER_TYPE.TARGET_HIT) : MARKER_TYPE.TARGET_NO_HIT;
+    const marker = new Marker(x, y, type);
 
-    this.gameView.addMarker(new Marker(x, y, type));
+    if (touched) {
+      marker.tag = lastBoatTouched;
+    }
+
+    if (killed) {
+      this.gameView.markers.filter((m) => m.tag === lastBoatTouched).forEach((m) => m.type = MARKER_TYPE.KILLED_BOAT);
+    }
+
+    this.gameView.addMarker(marker);
     this.gameView.draw();
   }
 };
