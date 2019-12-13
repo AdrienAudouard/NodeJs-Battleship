@@ -8,8 +8,9 @@ module.exports = class Game {
 
     const splitedType = type.split('-');
 
-    this.boats = splitedType.slice(1, splitedType.length - 1);
-    this.boatCannotTouch = splitedType[splitedType.length - 1] === 'true';
+    this.boats = splitedType.slice(1, splitedType.length - 2);
+    this.boatCannotTouch = splitedType[splitedType.length - 2] === 'true';
+    this.boardSize = parseInt(splitedType[splitedType.length - 1]);
     this.players = [new Player(pseudo, socket)];
     this.gameSize = type.split('-')[0];
     this.turn = 0;
@@ -18,8 +19,8 @@ module.exports = class Game {
 
   start() {
     this.players.forEach((player) => {
-      player.generateBoard(this.boats, this.boatCannotTouch);
-      player.socket.emit('game_start', player.board);
+      player.generateBoard(this.boats, this.boatCannotTouch, this.boardSize);
+      player.socket.emit('game_start', {board: player.board, boardSize: this.boardSize});
 
       player.socket.on('new_marker', ({x, y}) => {
         this.onNewMarker(x, y);

@@ -13,7 +13,7 @@ module.exports = class SocketController {
     this.onNewMarker = (x, y, touched, killed, lastBoatTouched) => {};
     this.onGamecreated = (code) => {};
     this.onError = (err) => {};
-    this.onGameStart = (boats) => {};
+    this.onGameStart = (boats, boardSize) => {};
     this.onEndTurn = () => {};
     this.onStartTurn = () => {};
     this.onBoardHited = (x, y, touched, killed, lastBoatTouched) => {};
@@ -52,8 +52,9 @@ module.exports = class SocketController {
       this.onError('The game do not exists');
     });
 
-    this._socket.on('game_start', (boats) => {
-      this.onGameStart(boats);
+    this._socket.on('game_start', ({board, boardSize}) => {
+      console.log(board);
+      this.onGameStart(board, boardSize);
     });
   }
 

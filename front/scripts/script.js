@@ -44,18 +44,18 @@ window.onload = () => {
       gameFormController.showGameCode(code);
     };
 
-    socketController.onGameStart = (boats) => {
+    socketController.onGameStart = (boats, boardSize) => {
       gameFormController.hideAllForm();
-      initGame();
+      initGame(boardSize);
       gameController.setPlayerBoats(boats);
 
     };
   });
 };
 
-const initGame = () => {
-  initMainGameView();
-  initSecondGameView();
+const initGame = (boardSize) => {
+  initMainGameView(boardSize);
+  initSecondGameView(boardSize);
 
   gameController = new GameController(mainGameView, secondGameView, socketController);
 
@@ -65,20 +65,20 @@ const initGame = () => {
   }
 };
 
-const initMainGameView = () => {
+const initMainGameView = (boardSize) => {
   const w = window.innerHeight * 0.7;
   const h = window.innerHeight * 0.7;
   const x = window.innerWidth / 2 - w / 2;
   const y = window.innerHeight / 2 - h / 2;
 
-  mainGameView = new GameView(canvasView.ctx, w, h, x, y);
+  mainGameView = new GameView(canvasView.ctx, w, h, x, y, boardSize);
 };
 
-const initSecondGameView = () => {
+const initSecondGameView = (boardSize) => {
   const w = window.innerHeight * 0.25;
   const h = window.innerHeight * 0.25;
   const x = window.innerWidth * 0.75;
   const y = window.innerHeight / 2 - h / 2;
 
-  secondGameView = new GameView(canvasView.ctx, w, h, x, y);
+  secondGameView = new GameView(canvasView.ctx, w, h, x, y, boardSize);
 };

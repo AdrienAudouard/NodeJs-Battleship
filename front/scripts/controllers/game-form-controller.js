@@ -17,6 +17,7 @@ module.exports = class GameFormController {
     this._endGameReplayButton = document.getElementById('replay_button');
     this._endGameQuitButton = document.getElementById('quit_button');
     this._boatCannotTouch = document.getElementById('boat-cannot-touch');
+    this._boardSizeInput = document.getElementById('board-size');
 
     this._endGameReplayButton.onclick = () => {
       const pseudo = localStorage.getItem('pseudo');
@@ -33,14 +34,20 @@ module.exports = class GameFormController {
 
     this._createButton.onclick = () => {
       const pseudo = this._createPseudoInput.value;
+      const boardSize = this._boardSizeInput.value;
       let type = this._gameTypeInput.value;
+      const boatCount = type.split('-').length - 1;
 
       if (type === '' || pseudo === '') {
         alert('Please fill pseudo and type inputs');
         return;
       }
 
-      type = `${type}-${this._boatCannotTouch.checked}`;
+      if (boardSize < (boatCount * 2)) {
+        alert(`The board is to small, it must be at last ${boatCount * 2}x${boatCount * 2}`)
+      }
+
+      type = `${type}-${this._boatCannotTouch.checked}-${boardSize}`;
 
       localStorage.setItem('pseudo', pseudo);
 
