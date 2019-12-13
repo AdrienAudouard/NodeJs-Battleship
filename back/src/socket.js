@@ -25,6 +25,7 @@ module.exports = (io) => {
           lastGameCode = id;
           gameController.joinGame(pseudo, socket, id);
           socket.emit('game_code', id);
+          updateJoinableGames();
 
           if (gameController.canGameStart(id)) {
             gameController.startGame(id);

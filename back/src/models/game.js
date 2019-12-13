@@ -15,6 +15,9 @@ module.exports = class Game {
     this.gameSize = type.split('-')[0];
     this.turn = 0;
     this.onEnd = () => {};
+    this.timeOutCallBack = () => {
+      this.nextTurn();
+    };
   }
 
   start() {
@@ -53,6 +56,7 @@ module.exports = class Game {
   }
 
   endGame() {
+    clearTimeout(this.timeOutCallBack);
     this.players.forEach((player) => {
       player.socket.removeAllListeners('new_marker');
     });
@@ -61,6 +65,7 @@ module.exports = class Game {
   }
 
   nextTurn() {
+    clearTimeout(this.timeOutCallBack);
     this.turn ++;
 
     const playerID = this.turn % this.gameSize;
@@ -72,6 +77,7 @@ module.exports = class Game {
         player.socket.emit('player_end_turn');
       }
     });
+   setTimeout(this.timeOutCallBack, 30000);
   }
 
   isGameFull() {
