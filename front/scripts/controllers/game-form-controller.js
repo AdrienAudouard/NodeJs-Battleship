@@ -16,6 +16,7 @@ module.exports = class GameFormController {
     this._endGameTitle = document.getElementById('end-game-title');
     this._endGameReplayButton = document.getElementById('replay_button');
     this._endGameQuitButton = document.getElementById('quit_button');
+    this._boatCannotTouch = document.getElementById('boat-cannot-touch');
 
     this._endGameReplayButton.onclick = () => {
       const pseudo = localStorage.getItem('pseudo');
@@ -32,12 +33,14 @@ module.exports = class GameFormController {
 
     this._createButton.onclick = () => {
       const pseudo = this._createPseudoInput.value;
-      const type = this._gameTypeInput.value;
+      let type = this._gameTypeInput.value;
 
       if (type === '' || pseudo === '') {
         alert('Please fill pseudo and type inputs');
         return;
       }
+
+      type = `${type}-${this._boatCannotTouch.checked}`;
 
       localStorage.setItem('pseudo', pseudo);
 

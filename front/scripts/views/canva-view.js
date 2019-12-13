@@ -3,10 +3,6 @@ module.exports = class CanvasView {
     this._canvas = document.getElementById('paper');
     this.ctx = this._canvas.getContext("2d");
 
-    window.onresize = () => {
-      //this._initCanvasSize();
-    };
-
     this._initCanvasSize();
   }
 

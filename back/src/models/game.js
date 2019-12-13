@@ -5,7 +5,11 @@ module.exports = class Game {
   constructor(pseudo, type, socket) {
     this.code = randomString(6);
     this.type = type;
-    this.boats = type.split('-').slice(1);
+
+    const splitedType = type.split('-');
+
+    this.boats = splitedType.slice(1, splitedType.length - 1);
+    this.boatCannotTouch = splitedType[splitedType.length - 1] === 'true';
     this.players = [new Player(pseudo, socket)];
     this.gameSize = type.split('-')[0];
     this.turn = 0;
@@ -14,7 +18,7 @@ module.exports = class Game {
 
   start() {
     this.players.forEach((player) => {
-      player.generateBoard(this.boats);
+      player.generateBoard(this.boats, this.boatCannotTouch);
       player.socket.emit('game_start', player.board);
 
       player.socket.on('new_marker', ({x, y}) => {

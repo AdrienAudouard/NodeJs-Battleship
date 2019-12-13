@@ -22,9 +22,14 @@ module.exports = class Player {
     return true;
   }
 
-  generateBoard(boats, boardSize = 10) {
+  generateBoard(boats, boatCannotTouch, boardSize = 10) {
+    console.log(boatCannotTouch);
+    console.log(boats);
+    console.log('start generating boat...');
+
     boats.forEach((boat) => {
       let futureBoat = {};
+
 
       do {
         const isHorizontal = randomInt(2) === 1;
@@ -42,12 +47,14 @@ module.exports = class Player {
         }
 
         futureBoat = {points, isHorizontal, size: boat};
-      } while (this.intersectAnotherBoat(futureBoat));
+      } while (this.intersectAnotherBoat(futureBoat, boatCannotTouch));
       this.board.push(futureBoat);
     });
+
+    console.log('end generating boat...');
   }
 
-  intersectAnotherBoat(newBoat) {
+  intersectAnotherBoat(newBoat, boatCannotTouch) {
     for(let i = 0; i < this.board.length; i++) {
       const boat = this.board[i];
       for(let j = 0; j < boat.points.length; j++) {
@@ -57,6 +64,12 @@ module.exports = class Player {
 
           if (newPoint.x === point.x && newPoint.y === point.y) {
             return true;
+          }
+
+          if (boatCannotTouch === true) {
+            if (Math.abs(newPoint.x - point.x) <= 1 && Math.abs(newPoint.y - point.y) <= 1) {
+              return true;
+            }
           }
         }
       }
