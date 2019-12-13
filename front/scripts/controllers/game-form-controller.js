@@ -2,6 +2,7 @@ module.exports = class GameFormController {
   constructor() {
     this.onJoin = (pseudo, id) => {};
     this.onCreate = (pseudo, type) => {};
+    this.onReplay = (pseudo) => {};
 
     this._form = document.getElementById('form');
     this._createPseudoInput = document.getElementById('create_pseudo');
@@ -11,6 +12,23 @@ module.exports = class GameFormController {
     this._gameIDInput = document.getElementById('game_id');
     this._joinButton = document.getElementById('join_button');
     this._gameCodeDiv = document.getElementById('game_code');
+    this._endGameDiv = document.getElementById('end-game');
+    this._endGameTitle = document.getElementById('end-game-title');
+    this._endGameReplayButton = document.getElementById('replay_button');
+    this._endGameQuitButton = document.getElementById('quit_button');
+
+    this._endGameReplayButton.onclick = () => {
+      const pseudo = localStorage.getItem('pseudo');
+      this._endGameReplayButton.disabled = true;
+      this._endGameQuitButton.disabled = true;
+
+      this.onReplay(pseudo);
+    };
+
+    this._endGameQuitButton.onclick = () => {
+      this.hideEndGameForm();
+      this.showForm();
+    };
 
     this._createButton.onclick = () => {
       const pseudo = this._createPseudoInput.value;
@@ -58,6 +76,18 @@ module.exports = class GameFormController {
     this.showCodeDiv();
   }
 
+  hideEndGameForm() {
+    this._endGameDiv.style.display = 'none';
+  }
+
+  showEndGameForm(title) {
+    this._endGameReplayButton.disabled = false;
+    this._endGameQuitButton.disabled = false;
+
+    this._endGameTitle.innerText = title;
+    this._endGameDiv.style.display = 'block';
+  }
+
   hideForm() {
     this._form.style.display = 'none';
   }
@@ -77,6 +107,6 @@ module.exports = class GameFormController {
   hideAllForm() {
     this.hideForm();
     this.hideCodeDiv();
-
+    this.hideEndGameForm();
   }
 };

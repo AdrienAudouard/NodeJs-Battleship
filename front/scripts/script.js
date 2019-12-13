@@ -36,6 +36,10 @@ window.onload = () => {
       socketController.joinGame(pseudo, id);
     };
 
+    gameFormController.onReplay = (pseudo) => {
+      socketController.replay(pseudo);
+    };
+
     socketController.onGamecreated = (code) => {
       gameFormController.showGameCode(code);
     };
@@ -55,9 +59,9 @@ const initGame = () => {
 
   gameController = new GameController(mainGameView, secondGameView, socketController);
 
-  gameController.onEndGame = () => {
+  gameController.onEndGame = (message) => {
     canvasView.clear();
-    gameFormController.showForm();
+    gameFormController.showEndGameForm(message);
   }
 };
 

@@ -4,6 +4,7 @@ const Player = require('./player');
 module.exports = class Game {
   constructor(pseudo, type, socket) {
     this.code = randomString(6);
+    this.type = type;
     this.boats = type.split('-').slice(1);
     this.players = [new Player(pseudo, socket)];
     this.gameSize = type.split('-')[0];

@@ -9,7 +9,7 @@ module.exports = class GameController {
     this.socketController = socketController;
     this.infoView = new InfoView(this.playerGameView['_ctx'], this.gameView['_y']);
     this._isPlayerTurn = false;
-    this.onEndGame = () => {};
+    this.onEndGame = (message) => {};
 
     this.gameView.onClick = (x, y) => {
       if (!this._isPlayerTurn) { return; }
@@ -23,13 +23,11 @@ module.exports = class GameController {
     };
 
     this.socketController.onWin = () => {
-      alert('You win !');
-      this._endGame();
+      this._endGame('You win !');
     };
 
     this.socketController.onLoose = () => {
-      alert('You loose !');
-      this._endGame();
+      this._endGame('You loose !');
     };
 
     this.socketController.onStartTurn = () => {
@@ -43,10 +41,10 @@ module.exports = class GameController {
     };
   }
 
-  _endGame() {
+  _endGame(message) {
     this.gameView.onDestroy();
     this.playerGameView.onDestroy();
-    this.onEndGame();
+    this.onEndGame(message);
   }
 
   setPlayerBoats(boats) {

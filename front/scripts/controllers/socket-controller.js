@@ -57,6 +57,10 @@ module.exports = class SocketController {
     });
   }
 
+  replay(pseudo) {
+    this._socket.emit('replay', pseudo);
+  }
+
   joinGame(pseudo, id) {
     this._socket.emit('join_game', {pseudo, id});
   }

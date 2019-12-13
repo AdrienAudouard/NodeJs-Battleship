@@ -3,6 +3,7 @@ const Game = require('./models/game');
 module.exports = class GameController {
   constructor() {
     this.games = {};
+    this.oldGamesType = {};
   }
 
   createGame(pseudo, type, socket) {
@@ -30,9 +31,15 @@ module.exports = class GameController {
     return this.games[code].canJoin();
   }
 
+  createGameWithCode(code, pseudo, socket) {
+    const type = this.oldGamesType[code];
+    this.games[code] = new Game(pseudo, type, socket);
+  }
+
   startGame(code) {
     this.games[code].start();
     this.games[code].onEnd = () => {
+      this.oldGamesType[code] = this.games[code].type;
       delete this.games[code];
     };
   }
