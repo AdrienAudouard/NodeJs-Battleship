@@ -16,5 +16,5 @@ npm run start
 ```
 cd back
 npm install
-npm run start
+npm run start:dev
 ```
