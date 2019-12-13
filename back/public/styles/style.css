@@ -8,7 +8,7 @@
     background: black;
 }
 
-#form, #game_code {
+#form, #game_code, #end-game {
     position: fixed;
     background-color: rgb(255, 255, 255);
     width: 500px;
@@ -23,11 +23,15 @@
     color: #555;
 }
 
-#game_code {
+#game_code, #end-game {
     display: none;
     font-size: 1.5em;
     line-height: 50px;
     height: 50px;
+}
+
+#end-game {
+    height: 90px;
 }
 
 td {
@@ -48,4 +52,9 @@ tr {
     border-radius: 10px;
     cursor: pointer;
     width: 100px;
+}
+
+.button:disabled {
+    background: #555555;
+    cursor: default;
 }
