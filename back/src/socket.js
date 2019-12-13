@@ -3,13 +3,20 @@ const GameController = require('./game-controller');
 module.exports = (io) => {
   const gameController = new GameController();
 
+  const updateJoinableGames = () => {
+    io.emit('joinable_games', gameController.getNotFullGames());
+  };
+
   io.on('connection', (socket) => {
     let lastGameCode;
+
+    socket.emit('joinable_games', gameController.getNotFullGames());
 
     socket.on('create_game', ({ pseudo, type }) => {
       const gameCode = gameController.createGame(pseudo, type, socket);
       lastGameCode = gameCode;
       socket.emit('game_code', gameCode);
+      updateJoinableGames();
     });
 
     socket.on('join_game', ({ pseudo, id }) => {
@@ -28,6 +35,18 @@ module.exports = (io) => {
 
       } else {
         socket.emit('join_error')
+      }
+    });
+
+    socket.on('disconnect', () => {
+      if (lastGameCode === undefined) {
+        return;
+      }
+
+      if (gameController.gameExists(lastGameCode)) {
+        if (gameController.removePlayerFromGame(lastGameCode, socket)) {
+          updateJoinableGames();
+        }
       }
     });
 

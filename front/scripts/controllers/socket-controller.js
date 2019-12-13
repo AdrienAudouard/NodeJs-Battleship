@@ -19,6 +19,12 @@ module.exports = class SocketController {
     this.onBoardHited = (x, y, touched, killed, lastBoatTouched) => {};
     this.onWin = () => {};
     this.onLoose = () => {};
+    this.onJoinableGames = (games) => {};
+
+    this._socket.on('joinable_games', (games) => {
+      console.log(games);
+      this.onJoinableGames(games);
+    });
 
     this._socket.on('player_turn', () => {
       this.onStartTurn();

@@ -18,6 +18,7 @@ module.exports = class GameFormController {
     this._endGameQuitButton = document.getElementById('quit_button');
     this._boatCannotTouch = document.getElementById('boat-cannot-touch');
     this._boardSizeInput = document.getElementById('board-size');
+    this._gameList = document.getElementById('game-list');
 
     this._endGameReplayButton.onclick = () => {
       const pseudo = localStorage.getItem('pseudo');
@@ -82,6 +83,24 @@ module.exports = class GameFormController {
       this._createPseudoInput.value = pseudo;
       this._joinPseudoInput.value = pseudo;
     }
+  }
+
+  setGameList(games) {
+    this._gameList.innerHTML = '';
+    games.forEach((game) => {
+      const item = document.createElement('li');
+      item.innerHTML = `${game.host} <button class="join-button">Join</button>`;
+
+      item.addEventListener('click', () => {
+        this.onJoin(this.getPseudo(), game.code);
+      });
+
+      this._gameList.appendChild(item);
+    });
+  }
+
+  getPseudo() {
+    return this._joinPseudoInput.value;
   }
 
   showGameCode(code) {

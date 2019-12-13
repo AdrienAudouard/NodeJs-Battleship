@@ -82,7 +82,15 @@ module.exports = class Game {
     return this.players.length < this.gameSize;
   }
 
+  isEmpty() {
+    return this.players.length === 0;
+  }
+
   addPlayer(pseudo, socket) {
     this.players.push(new Player(pseudo, socket));
+  }
+
+  removePlayer(socket) {
+    this.players = this.players.filter((p) => p.socket.id !== socket.id);
   }
 };

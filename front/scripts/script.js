@@ -28,6 +28,10 @@ window.onload = () => {
       alert(err);
     };
 
+    socketController.onJoinableGames = (games) => {
+      gameFormController.setGameList(games);
+    };
+
     gameFormController.onCreate = (pseudo, type) => {
       socketController.createGame(pseudo, type);
     };

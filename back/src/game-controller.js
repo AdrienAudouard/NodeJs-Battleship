@@ -36,6 +36,33 @@ module.exports = class GameController {
     this.games[code] = new Game(pseudo, type, socket);
   }
 
+  getNotFullGames() {
+    const games = [];
+    for(let[key, value] of Object.entries(this.games)) {
+      if (!value.canJoin()) {
+        continue;
+      }
+
+      games.push({
+        code: key,
+        host: value.players[0].pseudo
+      });
+    }
+
+    return games;
+  }
+
+  removePlayerFromGame(code, socket) {
+    this.games[code].removePlayer(socket);
+
+    if (this.games[code].isEmpty()) {
+      delete this.games[code];
+      return true;
+    }
+
+    return false;
+  }
+
   startGame(code) {
     this.games[code].start();
     this.games[code].onEnd = () => {
