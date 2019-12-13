@@ -47,7 +47,8 @@ module.exports = class GameFormController {
       }
 
       if (boardSize < boardMinSize) {
-        alert(`The board is to small, it must be at last ${boardMinSize}x${boardMinSize}`)
+        alert(`The board is to small, it must be at last ${boardMinSize}x${boardMinSize}`);
+        return;
       }
 
       type = `${type}-${boatCannotTouch}-${boardSize}`;

@@ -15,6 +15,7 @@ module.exports = class GameView {
     this.boats = [];
     this.draw();
     this.onClick = (x, y) => {};
+
     this._onClickListener = (evt) => {
       this._onClick(evt);
     };
@@ -36,6 +37,13 @@ module.exports = class GameView {
 
     const gridX = Math.trunc(x / this._width * this._boardSize);
     const gridY = Math.trunc(y / this._heigth * this._boardSize);
+
+    for(let i = 0; i < this.markers.length; i++) {
+      const m = this.markers[i];
+      if (m.x === gridX && m.y === gridY) {
+        return;
+      }
+    }
 
     this.onClick(gridX, gridY);
   }
