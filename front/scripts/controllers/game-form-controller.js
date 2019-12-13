@@ -35,19 +35,23 @@ module.exports = class GameFormController {
     this._createButton.onclick = () => {
       const pseudo = this._createPseudoInput.value;
       const boardSize = this._boardSizeInput.value;
-      let type = this._gameTypeInput.value;
+      const boatCannotTouch = this._boatCannotTouch.checked;
       const boatCount = type.split('-').length - 1;
+      const boardMinSize = boatCannotTouch ? boatCount * 2 : boatCount;
+
+      let type = this._gameTypeInput.value;
+
 
       if (type === '' || pseudo === '') {
         alert('Please fill pseudo and type inputs');
         return;
       }
 
-      if (boardSize < (boatCount * 2)) {
-        alert(`The board is to small, it must be at last ${boatCount * 2}x${boatCount * 2}`)
+      if (boardSize < boardMinSize) {
+        alert(`The board is to small, it must be at last ${boardMinSize}x${boardMinSize}`)
       }
 
-      type = `${type}-${this._boatCannotTouch.checked}-${boardSize}`;
+      type = `${type}-${boatCannotTouch}-${boardSize}`;
 
       localStorage.setItem('pseudo', pseudo);
 
