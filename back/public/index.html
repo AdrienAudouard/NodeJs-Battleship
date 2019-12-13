@@ -14,56 +14,63 @@
 
 <body>
     <div id="form">
-        <h1>Create a game</h1>
-        <table>
-            <tr>
-                <td>Pseudo</td>
-                <td><input id="create_pseudo" name="create_pseudo" type="text"></td>
-            </tr>
-            <tr>
-                <td>Game type</td>
-                <td>
-                    <select name="game-type" id="game_type">
-                        <option value="">--Please choose an option--</option>
-                        <option value="2-4-3-2-2">2 players - 4, 3, 2, 2</option>
-                        <option value="2-6-5-4-3-2">2 players - 6, 5, 4, 3, 2</option>
-                        <option value="2-2-2-2-2-2-2">2 players - 2, 2, 2, 2, 2, 2</option>
-                        <option value="2-1">2 players - 1</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Board size</td>
-                <td>
-                    <select name="board-size" id="board-size">
-                        <option value="8">8 x 8</option>
-                        <option value="10" selected>10 x 10</option>
-                        <option value="12">12 x 12</option>
-                        <option value="14">14 x 14</option>
-                        <option value="16">16 x 16</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Boats cannot touch each other</td>
-                <td><input id="boat-cannot-touch" type="checkbox"></td>
-            </tr>
-        </table>
-        <button id="create_button" class="button">Create</button>
-        <h1>Join a game</h1>
-        <table>
-            <tr>
-                <td>Pseudo</td>
-                <td><input id="join_pseudo" name="join_pseudo" type="text"></td>
-            </tr>
-            <tr>
-                <td>Game ID</td>
-                <td>
-                    <input id="game_id" name="game_id" type="text"></td>
-                </td>
-            </tr>
-        </table>
-        <button id="join_button" class="button">Join</button>
+        <div id="join-form">
+            <h1>Create a game</h1>
+            <table>
+                <tr>
+                    <td>Pseudo</td>
+                    <td><input id="create_pseudo" name="create_pseudo" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Game type</td>
+                    <td>
+                        <select name="game-type" id="game_type">
+                            <option value="">--Please choose an option--</option>
+                            <option value="2-4-3-2-2">2 players - 4, 3, 2, 2</option>
+                            <option value="2-6-5-4-3-2">2 players - 6, 5, 4, 3, 2</option>
+                            <option value="2-2-2-2-2-2-2">2 players - 2, 2, 2, 2, 2, 2</option>
+                            <option value="2-1">2 players - 1</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Board size</td>
+                    <td>
+                        <select name="board-size" id="board-size">
+                            <option value="8">8 x 8</option>
+                            <option value="10" selected>10 x 10</option>
+                            <option value="12">12 x 12</option>
+                            <option value="14">14 x 14</option>
+                            <option value="16">16 x 16</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Boats cannot touch each other</td>
+                    <td><input id="boat-cannot-touch" type="checkbox"></td>
+                </tr>
+            </table>
+            <button id="create_button" class="button">Create</button>
+            <h1>Join a game</h1>
+            <table>
+                <tr>
+                    <td>Pseudo</td>
+                    <td><input id="join_pseudo" name="join_pseudo" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Game ID</td>
+                    <td>
+                        <input id="game_id" name="game_id" type="text"></td>
+                    </td>
+                </tr>
+            </table>
+            <button id="join_button" class="button">Join</button>
+        </div>
+        <div id="current-game-form">
+            <h1>Game available</h1>
+            <br />
+            <ul id="game-list"></ul>
+        </div>
     </div>
 
     <div id="end-game">

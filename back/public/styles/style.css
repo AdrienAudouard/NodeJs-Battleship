@@ -11,11 +11,11 @@
 #form, #game_code, #end-game {
     position: fixed;
     background-color: rgb(255, 255, 255);
-    width: 500px;
+    width: 700px;
     height: 390px;
     top: 50%;
     left: 50%;
-    margin: -220px 0 0 -275px;
+    margin: -220px 0 0 -375px;
     text-align: center;
     padding: 25px;
     border-radius: 10px;
@@ -32,6 +32,32 @@
 
 #end-game {
     height: 90px;
+}
+
+#current-game-form {
+    float: right;
+    width: 200px;
+    overflow: scroll;
+}
+
+#current-game-form li {
+    padding: 10px;
+    cursor: pointer !important;
+    text-align: left;
+
+    font-weight: bold;
+    font-size: 20px;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-color: #c8d6e5;
+    border-style: solid;
+}
+
+#join-form {
+    float: left;
+    width: 500px;
 }
 
 td {
@@ -57,4 +83,30 @@ tr {
 .button:disabled {
     background: #555555;
     cursor: default;
+}
+
+.join-button {
+    background: white;
+    color: #10ac84;
+    border-color: #10ac84;
+    border-width: 2px;
+    width: 50px;
+    padding: 3px;
+    font-size: 14px;
+    float: right;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.join-button:hover {
+    background: #10ac84;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+    width: 50px;
+    padding: 3px;
+    font-size: 14px;
+    float: right;
+    border-radius: 7px;
+    cursor: pointer;
 }
