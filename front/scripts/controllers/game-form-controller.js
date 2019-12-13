@@ -36,10 +36,9 @@ module.exports = class GameFormController {
       const pseudo = this._createPseudoInput.value;
       const boardSize = this._boardSizeInput.value;
       const boatCannotTouch = this._boatCannotTouch.checked;
+      let type = this._gameTypeInput.value;
       const boatCount = type.split('-').length - 1;
       const boardMinSize = boatCannotTouch ? boatCount * 2 : boatCount;
-
-      let type = this._gameTypeInput.value;
 
 
       if (type === '' || pseudo === '') {
