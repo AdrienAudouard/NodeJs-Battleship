@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759eca86-3f35-4b9a-82c4-f1297b0b6dbf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/utils/board-generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/models/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/models/player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +71,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576141782225</updated>
-      <workItem from="1576141785047" duration="34201000" />
+      <workItem from="1576141785047" duration="35856000" />
+      <workItem from="1576359413701" duration="1290000" />
     </task>
     <servers />
   </component>
@@ -84,9 +88,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="93" width="683" height="714" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1576225651854" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1576228174513">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1576341868243">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1576228174513" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1576341868243" />
   </component>
 </project>

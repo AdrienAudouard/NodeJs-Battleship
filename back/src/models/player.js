@@ -1,4 +1,5 @@
 const randomInt = require('../utils/random-int');
+const BoardGenerator = require('../utils/board-generator');
 
 module.exports = class Player {
   constructor(pseudo, socket) {
@@ -23,58 +24,8 @@ module.exports = class Player {
   }
 
   generateBoard(boats, boatCannotTouch, boardSize = 10) {
-    console.log(boatCannotTouch);
-    console.log(boats);
-    console.log('start generating boat...');
-
-    boats.forEach((boat) => {
-      let futureBoat = {};
-
-
-      do {
-        const isHorizontal = randomInt(2) === 1;
-        const start = {
-          x: randomInt(boardSize - boat),
-          y: randomInt(boardSize - boat),
-        };
-        const points = [];
-
-        for (let i = 0; i < boat; i++) {
-          const x = isHorizontal ? start.x + i : start.x;
-          const y = isHorizontal ? start.y : start.y + i;
-
-          points.push({ x, y, hited: false });
-        }
-
-        futureBoat = {points, isHorizontal, size: boat};
-      } while (this.intersectAnotherBoat(futureBoat, boatCannotTouch));
-      this.board.push(futureBoat);
-    });
-
-    console.log('end generating boat...');
-  }
-
-  intersectAnotherBoat(newBoat, boatCannotTouch) {
-    for(let i = 0; i < this.board.length; i++) {
-      const boat = this.board[i];
-      for(let j = 0; j < boat.points.length; j++) {
-        const point = boat.points[j];
-        for(let k = 0; k < newBoat.points.length; k++) {
-          const newPoint = newBoat.points[k];
-
-          if (newPoint.x === point.x && newPoint.y === point.y) {
-            return true;
-          }
-
-          if (boatCannotTouch === true) {
-            if (Math.abs(newPoint.x - point.x) <= 1 && Math.abs(newPoint.y - point.y) <= 1) {
-              return true;
-            }
-          }
-        }
-      }
-    }
-    return false;
+    const boardGenerator = new BoardGenerator();
+    this.board = boardGenerator.generateBoard(boats, boatCannotTouch, boardSize);
   }
 
   touchABoat(x, y) {
