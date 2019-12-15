@@ -5,6 +5,7 @@ const GameController = require('./controllers/game-controller');
 const SocketController = require('./controllers/socket-controller');
 const GameFormController = require('./controllers/game-form-controller');
 const MARKER_TYPE = require('./model/marker-type');
+const MessageView = require('./views/message-view');
 
 let canvasView;
 let mainGameView;
@@ -24,8 +25,17 @@ window.onload = () => {
     gameFormController = new GameFormController();
     canvasView = new CanvasView();
 
+    socketController.onDisconnect = () => {
+      const message = new MessageView('An error occured with the server, please reload the page !', 'Error');
+
+      message.show(() => {
+        document.location.reload(true);
+      });
+    };
+
     socketController.onError = (err) => {
-      alert(err);
+      const message = new MessageView(err, 'Error');
+      message.show();
     };
 
     socketController.onJoinableGames = (games) => {
@@ -38,6 +48,10 @@ window.onload = () => {
 
     socketController.onGameEndWithError = (msg) => {
       canvasView.clear();
+      if (gameController) {
+        gameController.endGame('', false);
+      }
+
       gameFormController.showGameErrorMsg(msg);
     };
 

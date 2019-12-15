@@ -1,3 +1,5 @@
+const MessageView = require('../views/message-view');
+
 module.exports = class GameFormController {
   constructor() {
     this.onJoin = (pseudo, id) => {};
@@ -40,7 +42,9 @@ module.exports = class GameFormController {
       let type = this._gameTypeInput.value;
 
       if (type === '' || pseudo === '') {
-        alert('Please fill pseudo and type inputs');
+        const message = new MessageView('Please fill pseudo and type inputs', 'Error');
+        message.show();
+
         return;
       }
 
@@ -56,7 +60,9 @@ module.exports = class GameFormController {
       const id = this._gameIDInput.value;
 
       if (id === '' || pseudo === '') {
-        alert('Please fill pseudo and game id inputs');
+        const message = new MessageView('Please fill pseudo and game id inputs', 'Error');
+        message.show();
+
         return;
       }
 
@@ -118,7 +124,8 @@ module.exports = class GameFormController {
   }
 
   showGameErrorMsg(msg) {
-    alert(msg);
+    const message = new MessageView(msg, 'Error');
+    message.show();
 
     this.hideAllForm();
     this.showForm();

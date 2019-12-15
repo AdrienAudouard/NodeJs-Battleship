@@ -22,6 +22,15 @@ module.exports = class SocketController {
     this.onJoinableGames = (games) => {};
     this.onGameEndWithError = (msg) => {};
     this.onLoading = () => {};
+    this.onDisconnect = () => {};
+
+    this._socket.on('connect_error', () => {
+      this.onDisconnect();
+    });
+
+    this._socket.on('disconnect', () => {
+      this.onDisconnect();
+    });
 
     this._socket.on('joinable_games', (games) => {
       this.onJoinableGames(games);

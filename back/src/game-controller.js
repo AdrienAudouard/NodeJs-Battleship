@@ -52,6 +52,10 @@ module.exports = class GameController {
     return games;
   }
 
+  isGameStarted(code) {
+    return this.games[code].isStart;
+  }
+
   removePlayerFromGame(code, socket) {
     this.games[code].removePlayer(socket);
 
@@ -61,6 +65,15 @@ module.exports = class GameController {
     }
 
     return false;
+  }
+
+  endGameWithError(code) {
+    const game = this.games[code];
+    if (game) {
+      game.endGameWithError('A player has left the game');
+    }
+
+    delete this.games[code];
   }
 
   startGame(code) {

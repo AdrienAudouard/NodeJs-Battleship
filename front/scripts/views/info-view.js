@@ -5,8 +5,12 @@ module.exports = class InfoView {
     this.timeOut = null;
   }
 
+  clear() {
+    window.clearTimeout(this.timeOut);
+    this._ctx.clearRect(0, 0, window.innerWidth, this._h);
+  }
+
   drawInfo(txt) {
-    console.log('ici');
     window.clearTimeout(this.timeOut);
     this._drawInfo(txt, 30);
   }

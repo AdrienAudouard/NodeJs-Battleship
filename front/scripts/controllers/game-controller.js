@@ -23,11 +23,11 @@ module.exports = class GameController {
     };
 
     this.socketController.onWin = () => {
-      this._endGame('You win !');
+      this.endGame('You win !');
     };
 
     this.socketController.onLoose = () => {
-      this._endGame('You loose !');
+      this.endGame('You loose !');
     };
 
     this.socketController.onStartTurn = () => {
@@ -41,10 +41,13 @@ module.exports = class GameController {
     };
   }
 
-  _endGame(message) {
+  endGame(message, useCallback = true) {
+    this.infoView.clear();
     this.gameView.onDestroy();
     this.playerGameView.onDestroy();
-    this.onEndGame(message);
+    if (useCallback) {
+      this.onEndGame(message);
+    }
   }
 
   setPlayerBoats(boats) {

@@ -46,8 +46,12 @@ module.exports = (io) => {
       }
 
       if (gameController.gameExists(lastGameCode)) {
-        if (gameController.removePlayerFromGame(lastGameCode, socket)) {
-          updateJoinableGames();
+        if (!gameController.isGameStarted(lastGameCode)) {
+          if (gameController.removePlayerFromGame(lastGameCode, socket)) {
+            updateJoinableGames();
+          }
+        } else {
+          gameController.endGameWithError(lastGameCode);
         }
       }
     });
