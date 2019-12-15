@@ -14,5 +14,6 @@ module.exports = {
   JOIN_GAME: 'join_game',
   JOIN_ERROR: 'join_error',
   DISCONNECT: 'disconnect',
-  REPLAY: 'replay'
+  REPLAY: 'replay',
+  LOADING: 'loading',
 };

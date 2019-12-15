@@ -32,6 +32,10 @@ window.onload = () => {
       gameFormController.setGameList(games);
     };
 
+    socketController.onLoading = () => {
+      gameFormController.showInfoMessage('Loading game...')
+    };
+
     socketController.onGameEndWithError = (msg) => {
       canvasView.clear();
       gameFormController.showGameErrorMsg(msg);

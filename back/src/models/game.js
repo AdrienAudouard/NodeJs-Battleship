@@ -15,8 +15,10 @@ module.exports = class Game {
     this.players = [new Player(pseudo, socket)];
     this.gameSize = type.split('-')[0];
     this.turn = 0;
-    this.onEnd = () => {};
-    this.onEndWithError = (msg) => {};
+    this.onEnd = () => {
+    };
+    this.onEndWithError = (msg) => {
+    };
 
     this.timeOutCallBack = () => {
       this.nextTurn();
@@ -24,22 +26,28 @@ module.exports = class Game {
   }
 
   start() {
-    try {
-      this.isStart = true;
-      this.players.forEach((player) => {
-        player.generateBoard(this.boats, this.boatCannotTouch, this.boardSize);
-        player.socket.emit(SOCKET_EVENTS.GAME_START, {board: player.board, boardSize: this.boardSize});
+    this.players.forEach((player) => {
+      player.socket.emit(SOCKET_EVENTS.LOADING);
+    });
 
-        player.socket.on(SOCKET_EVENTS.NEW_MARKER, ({x, y}) => {
-          this.onNewMarker(x, y);
+    setImmediate(() => {
+      try {
+        this.isStart = true;
+        this.players.forEach((player) => {
+          player.generateBoard(this.boats, this.boatCannotTouch, this.boardSize);
+          player.socket.emit(SOCKET_EVENTS.GAME_START, {board: player.board, boardSize: this.boardSize});
+
+          player.socket.on(SOCKET_EVENTS.NEW_MARKER, ({x, y}) => {
+            this.onNewMarker(x, y);
+          });
         });
-      });
 
-      this.nextTurn();
-    } catch (e) {
-      console.error(e.message);
-      this.endGameWithError('The board cannot be generated, please retry with an other game type.');
-    }
+        this.nextTurn();
+      } catch (e) {
+        console.error(e.message);
+        this.endGameWithError('The board cannot be generated, please retry with an other game type.');
+      }
+    });
   }
 
   onNewMarker(x, y) {
@@ -89,7 +97,7 @@ module.exports = class Game {
 
   nextTurn() {
     clearTimeout(this.timeOutCallBack);
-    this.turn ++;
+    this.turn++;
 
     const playerID = this.turn % this.gameSize;
 
@@ -100,7 +108,7 @@ module.exports = class Game {
         player.socket.emit(SOCKET_EVENTS.PLAYER_END_TURN);
       }
     });
-   setTimeout(this.timeOutCallBack, 30000);
+    setTimeout(this.timeOutCallBack, 30000);
   }
 
   isGameFull() {

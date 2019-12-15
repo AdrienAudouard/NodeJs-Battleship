@@ -96,8 +96,12 @@ module.exports = class GameFormController {
   }
 
   showGameCode(code) {
+    this.showInfoMessage(`<b>Game code</b>: ${code}`);
+  }
+
+  showInfoMessage(msg) {
     this.hideForm();
-    this._gameCodeDiv.innerHTML = `<b>Game code</b>: ${code}`;
+    this._gameCodeDiv.innerHTML = msg;
     this.showCodeDiv();
   }
 

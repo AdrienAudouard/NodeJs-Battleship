@@ -21,10 +21,14 @@ module.exports = class SocketController {
     this.onLoose = () => {};
     this.onJoinableGames = (games) => {};
     this.onGameEndWithError = (msg) => {};
+    this.onLoading = () => {};
 
     this._socket.on('joinable_games', (games) => {
-      console.log(games);
       this.onJoinableGames(games);
+    });
+
+    this._socket.on('loading', () => {
+      this.onLoading();
     });
 
     this._socket.on('game_end_with_error', (msg) => {
@@ -64,7 +68,6 @@ module.exports = class SocketController {
     });
 
     this._socket.on('game_start', ({board, boardSize}) => {
-      console.log(board);
       this.onGameStart(board, boardSize);
     });
   }

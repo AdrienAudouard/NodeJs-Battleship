@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759eca86-3f35-4b9a-82c4-f1297b0b6dbf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/back/src/utils/socket-events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/game-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/game-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/models/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/models/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/utils/board-generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/utils/board-generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/utils/socket-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/utils/socket-events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/scripts/controllers/game-form-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/scripts/controllers/game-form-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/scripts/controllers/socket-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/scripts/controllers/socket-controller.js" afterDir="false" />
@@ -78,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1576141782225</updated>
       <workItem from="1576141785047" duration="35856000" />
-      <workItem from="1576359413701" duration="3814000" />
+      <workItem from="1576359413701" duration="5071000" />
     </task>
     <servers />
   </component>
@@ -90,10 +87,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1576227899208" />
-    <state x="378" y="93" width="683" height="714" key="find.popup" timestamp="1576225651854">
+    <state x="378" y="93" width="683" height="714" key="find.popup" timestamp="1576416400435">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="378" y="93" width="683" height="714" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1576225651854" />
+    <state x="378" y="93" width="683" height="714" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1576416400435" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1576341868243">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
