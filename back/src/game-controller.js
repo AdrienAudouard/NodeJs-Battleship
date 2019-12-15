@@ -69,5 +69,9 @@ module.exports = class GameController {
       this.oldGamesType[code] = this.games[code].type;
       delete this.games[code];
     };
+
+    this.games[code].onEndWithError = (err) => {
+      delete this.games[code];
+    };
   }
 };

@@ -154,7 +154,7 @@ module.exports = class BoardGenerator {
       }
 
       if (i === 0 && possibilities[i].startPoints.length === 0) {
-        throw new Error('cannot generate board');
+        throw new Error('Board with type ' + boats.join('-') + ' cannot be generated');
       }
 
       const futureBoat = this.generateBoat(

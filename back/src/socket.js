@@ -1,45 +1,46 @@
 const GameController = require('./game-controller');
+const SOCKET_EVENTS = require('./utils/socket-events');
 
 module.exports = (io) => {
   const gameController = new GameController();
 
   const updateJoinableGames = () => {
-    io.emit('joinable_games', gameController.getNotFullGames());
+    io.emit(SOCKET_EVENTS.JOINABLE_GAMES, gameController.getNotFullGames());
   };
 
-  io.on('connection', (socket) => {
+  io.on(SOCKET_EVENTS.CONNECTION, (socket) => {
     let lastGameCode;
 
-    socket.emit('joinable_games', gameController.getNotFullGames());
+    socket.emit(SOCKET_EVENTS.JOINABLE_GAMES, gameController.getNotFullGames());
 
-    socket.on('create_game', ({ pseudo, type }) => {
+    socket.on(SOCKET_EVENTS.CREATE_GAME, ({ pseudo, type }) => {
       const gameCode = gameController.createGame(pseudo, type, socket);
       lastGameCode = gameCode;
-      socket.emit('game_code', gameCode);
+      socket.emit(SOCKET_EVENTS.GAME_CODE, gameCode);
       updateJoinableGames();
     });
 
-    socket.on('join_game', ({ pseudo, id }) => {
+    socket.on(SOCKET_EVENTS.JOIN_GAME, ({ pseudo, id }) => {
       if (gameController.gameExists(id)) {
         if (gameController.canJoin(id)) {
           lastGameCode = id;
           gameController.joinGame(pseudo, socket, id);
-          socket.emit('game_code', id);
+          socket.emit(SOCKET_EVENTS.GAME_CODE, id);
           updateJoinableGames();
 
           if (gameController.canGameStart(id)) {
             gameController.startGame(id);
           }
         } else {
-          socket.emit('join_error');
+          socket.emit(SOCKET_EVENTS.JOIN_ERROR);
         }
 
       } else {
-        socket.emit('join_error')
+        socket.emit(SOCKET_EVENTS.JOIN_ERROR);
       }
     });
 
-    socket.on('disconnect', () => {
+    socket.on(SOCKET_EVENTS.DISCONNECT, () => {
       if (lastGameCode === undefined) {
         return;
       }
@@ -51,9 +52,9 @@ module.exports = (io) => {
       }
     });
 
-    socket.on('replay', (pseudo) => {
+    socket.on(SOCKET_EVENTS.REPLAY, (pseudo) => {
       if (lastGameCode === undefined) {
-        socket.emit('join_error');
+        socket.emit(SOCKET_EVENTS.JOIN_ERROR);
         return;
       }
 

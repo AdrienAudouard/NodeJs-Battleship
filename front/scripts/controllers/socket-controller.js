@@ -20,10 +20,15 @@ module.exports = class SocketController {
     this.onWin = () => {};
     this.onLoose = () => {};
     this.onJoinableGames = (games) => {};
+    this.onGameEndWithError = (msg) => {};
 
     this._socket.on('joinable_games', (games) => {
       console.log(games);
       this.onJoinableGames(games);
+    });
+
+    this._socket.on('game_end_with_error', (msg) => {
+      this.onGameEndWithError(msg);
     });
 
     this._socket.on('player_turn', () => {

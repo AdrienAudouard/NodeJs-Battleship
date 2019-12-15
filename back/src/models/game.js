@@ -1,5 +1,6 @@
 const randomString = require('../utils/random-string');
 const Player = require('./player');
+const SOCKET_EVENTS = require('../utils/socket-events');
 
 module.exports = class Game {
   constructor(pseudo, type, socket) {
@@ -15,23 +16,30 @@ module.exports = class Game {
     this.gameSize = type.split('-')[0];
     this.turn = 0;
     this.onEnd = () => {};
+    this.onEndWithError = (msg) => {};
+
     this.timeOutCallBack = () => {
       this.nextTurn();
     };
   }
 
   start() {
-    this.isStart = true;
-    this.players.forEach((player) => {
-      player.generateBoard(this.boats, this.boatCannotTouch, this.boardSize);
-      player.socket.emit('game_start', {board: player.board, boardSize: this.boardSize});
+    try {
+      this.isStart = true;
+      this.players.forEach((player) => {
+        player.generateBoard(this.boats, this.boatCannotTouch, this.boardSize);
+        player.socket.emit(SOCKET_EVENTS.GAME_START, {board: player.board, boardSize: this.boardSize});
 
-      player.socket.on('new_marker', ({x, y}) => {
-        this.onNewMarker(x, y);
+        player.socket.on(SOCKET_EVENTS.NEW_MARKER, ({x, y}) => {
+          this.onNewMarker(x, y);
+        });
       });
-    });
 
-    this.nextTurn();
+      this.nextTurn();
+    } catch (e) {
+      console.error(e.message);
+      this.endGameWithError('The board cannot be generated, please retry with an other game type.');
+    }
   }
 
   onNewMarker(x, y) {
@@ -45,22 +53,36 @@ module.exports = class Game {
     const lastBoatTouched = ennemy.lastBoatTouched;
 
     if (ennemy.isDead()) {
-      actualPlayer.socket.emit('win');
-      ennemy.socket.emit('loose');
+      actualPlayer.socket.emit(SOCKET_EVENTS.WIN);
+      ennemy.socket.emit(SOCKET_EVENTS.LOOSE);
       this.endGame();
     } else {
-      actualPlayer.socket.emit('new_marker', {x, y, touched, killed: killedBoat, lastBoatTouched});
-      ennemy.socket.emit('board_hited', {x, y, touched, killed: killedBoat, lastBoatTouched});
+      actualPlayer.socket.emit(SOCKET_EVENTS.NEW_MARKER, {x, y, touched, killed: killedBoat, lastBoatTouched});
+      ennemy.socket.emit(SOCKET_EVENTS.BOARD_HITED, {x, y, touched, killed: killedBoat, lastBoatTouched});
 
       this.nextTurn();
     }
   }
 
-  endGame() {
+  clearListeners() {
     clearTimeout(this.timeOutCallBack);
     this.players.forEach((player) => {
-      player.socket.removeAllListeners('new_marker');
+      player.socket.removeAllListeners(SOCKET_EVENTS.NEW_MARKER);
     });
+  }
+
+  endGameWithError(msg) {
+    this.players.forEach((player) => {
+      player.socket.emit(SOCKET_EVENTS.GAME_END_WITH_ERROR, msg);
+    });
+
+    this.clearListeners();
+
+    this.onEndWithError(msg);
+  }
+
+  endGame() {
+    this.clearListeners();
 
     this.onEnd();
   }
@@ -73,9 +95,9 @@ module.exports = class Game {
 
     this.players.forEach((player, index) => {
       if (index === playerID) {
-        player.socket.emit('player_turn');
+        player.socket.emit(SOCKET_EVENTS.PLAYER_TURN);
       } else {
-        player.socket.emit('player_end_turn');
+        player.socket.emit(SOCKET_EVENTS.PLAYER_END_TURN);
       }
     });
    setTimeout(this.timeOutCallBack, 30000);

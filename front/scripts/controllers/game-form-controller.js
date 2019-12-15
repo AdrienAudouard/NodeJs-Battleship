@@ -38,17 +38,9 @@ module.exports = class GameFormController {
       const boardSize = this._boardSizeInput.value;
       const boatCannotTouch = this._boatCannotTouch.checked;
       let type = this._gameTypeInput.value;
-      const boatCount = type.split('-').length - 1;
-      const boardMinSize = boatCannotTouch ? boatCount * 2 : boatCount;
-
 
       if (type === '' || pseudo === '') {
         alert('Please fill pseudo and type inputs');
-        return;
-      }
-
-      if (boardSize < boardMinSize) {
-        alert(`The board is to small, it must be at last ${boardMinSize}x${boardMinSize}`);
         return;
       }
 
@@ -119,6 +111,13 @@ module.exports = class GameFormController {
 
     this._endGameTitle.innerText = title;
     this._endGameDiv.style.display = 'block';
+  }
+
+  showGameErrorMsg(msg) {
+    alert(msg);
+
+    this.hideAllForm();
+    this.showForm();
   }
 
   hideForm() {
