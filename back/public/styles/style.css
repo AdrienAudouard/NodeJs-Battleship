@@ -110,3 +110,51 @@ tr {
     border-radius: 7px;
     cursor: pointer;
 }
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 20px;
+    width: 500px;
+    margin-left: -270px;
+    left: 50%;
+    padding-top: 20px;
+    background: white;
+    border-radius: 10px;
+    border-color: #3498db;
+    border-width: 4px;
+    border-style: solid;
+}
+
+.alert h1,
+.alert p {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.alert h1 {
+    font-size: 1.4em;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.alert button {
+    margin-top: 20px;
+    float: right;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    background: #3498db;
+    color: white;
+    padding: 7px;
+}
+
+.transparent-div {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
