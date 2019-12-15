@@ -2,10 +2,11 @@ module.exports = class InfoView {
   constructor(ctx, h) {
     this._ctx = ctx;
     this._h = h;
-    this.timeOut = () => {};
+    this.timeOut = null;
   }
 
   drawInfo(txt) {
+    console.log('ici');
     window.clearTimeout(this.timeOut);
     this._drawInfo(txt, 30);
   }
@@ -21,11 +22,9 @@ module.exports = class InfoView {
     this._ctx.fillText(`${txt}... ${count} seconds remaining`, window.innerWidth / 2, this._h / 2);
     this._ctx.restore();
 
-    this.timeOut = () => {
+    this.timeOut = window.setTimeout(() => {
       const nextCount = count - 1;
       this._drawInfo(txt, nextCount);
-    };
-
-    window.setTimeout(this.timeOut, 1000)
+    }, 1000)
   }
 };

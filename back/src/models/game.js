@@ -20,9 +20,7 @@ module.exports = class Game {
     this.onEndWithError = (msg) => {
     };
 
-    this.timeOutCallBack = () => {
-      this.nextTurn();
-    };
+    this.timeOutRef = null;
   }
 
   start() {
@@ -73,7 +71,7 @@ module.exports = class Game {
   }
 
   clearListeners() {
-    clearTimeout(this.timeOutCallBack);
+    clearTimeout(this.timeOutRef);
     this.players.forEach((player) => {
       player.socket.removeAllListeners(SOCKET_EVENTS.NEW_MARKER);
     });
@@ -96,7 +94,7 @@ module.exports = class Game {
   }
 
   nextTurn() {
-    clearTimeout(this.timeOutCallBack);
+    clearTimeout(this.timeOutRef);
     this.turn++;
 
     const playerID = this.turn % this.gameSize;
@@ -108,7 +106,10 @@ module.exports = class Game {
         player.socket.emit(SOCKET_EVENTS.PLAYER_END_TURN);
       }
     });
-    setTimeout(this.timeOutCallBack, 30000);
+
+    this.timeOutRef = setTimeout(() => {
+      this.nextTurn();
+    }, 30000);
   }
 
   isGameFull() {
