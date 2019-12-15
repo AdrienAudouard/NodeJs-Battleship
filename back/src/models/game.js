@@ -7,7 +7,7 @@ module.exports = class Game {
     this.type = type;
 
     const splitedType = type.split('-');
-
+    this.isStart = false;
     this.boats = splitedType.slice(1, splitedType.length - 2);
     this.boatCannotTouch = splitedType[splitedType.length - 2] === 'true';
     this.boardSize = parseInt(splitedType[splitedType.length - 1]);
@@ -21,6 +21,7 @@ module.exports = class Game {
   }
 
   start() {
+    this.isStart = true;
     this.players.forEach((player) => {
       player.generateBoard(this.boats, this.boatCannotTouch, this.boardSize);
       player.socket.emit('game_start', {board: player.board, boardSize: this.boardSize});
@@ -85,7 +86,7 @@ module.exports = class Game {
   }
 
   canJoin() {
-    return this.players.length < this.gameSize;
+    return this.players.length < this.gameSize && !this.isStart;
   }
 
   isEmpty() {
