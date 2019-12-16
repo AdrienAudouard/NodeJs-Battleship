@@ -54,6 +54,10 @@
     height: 60vh;
 }
 
+.board-container .board {
+    cursor: url('../assets/target.png') 16 16, pointer;
+}
+
 .board {
     flex-direction: column;
     margin: 5px;
