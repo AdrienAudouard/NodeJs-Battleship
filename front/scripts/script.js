@@ -6,6 +6,7 @@ const SocketController = require('./controllers/socket-controller');
 const GameFormController = require('./controllers/game-form-controller');
 const MARKER_TYPE = require('./model/marker-type');
 const MessageView = require('./views/message-view');
+const BOARD_CONTAINER = require('./utils/board-container');
 
 let canvasView;
 let mainGameView;
@@ -16,10 +17,10 @@ let gameFormController;
 
 window.onload = () => {
   AssetsLoader.load([
-    { id: MARKER_TYPE.TARGET_NO_HIT, url: '/assets/jeremy.jpg' },
+    { id: MARKER_TYPE.TARGET_NO_HIT, url: '/assets/black-circle.png' },
     { id: MARKER_TYPE.TARGET_HIT, url: '/assets/red-cross.png' },
     { id: MARKER_TYPE.PLAYER_BOAT, url: '/assets/square-ship.png' },
-    { id: MARKER_TYPE.KILLED_BOAT, url: '/assets/red-square-ship.png' }
+    { id: MARKER_TYPE.KILLED_BOAT, url: '/assets/jeremy.jpg' }
   ], () => {
     socketController = new SocketController();
     gameFormController = new GameFormController();
@@ -93,19 +94,9 @@ const initGame = (boardSize) => {
 };
 
 const initMainGameView = (boardSize) => {
-  const w = window.innerHeight * 0.7;
-  const h = window.innerHeight * 0.7;
-  const x = window.innerWidth / 2 - w / 2;
-  const y = window.innerHeight / 2 - h / 2;
-
-  mainGameView = new GameView(canvasView.ctx, w, h, x, y, boardSize);
+  mainGameView = new GameView(boardSize, BOARD_CONTAINER.GAME_BOARD);
 };
 
 const initSecondGameView = (boardSize) => {
-  const w = window.innerHeight * 0.25;
-  const h = window.innerHeight * 0.25;
-  const x = window.innerWidth * 0.75;
-  const y = window.innerHeight / 2 - h / 2;
-
-  secondGameView = new GameView(canvasView.ctx, w, h, x, y, boardSize);
+  secondGameView = new GameView(boardSize, BOARD_CONTAINER.PLAYER_BOARD);
 };

@@ -6,6 +6,7 @@
 
     <!-- The styles -->
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/board.css" />
 
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -53,7 +54,7 @@
                 </tr>
                 <tr>
                     <td>Boats cannot touch each other</td>
-                    <td><input id="boat-cannot-touch" type="checkbox"></td>
+                    <td><input id="boat-cannot-touch" type="checkbox" checked></td>
                 </tr>
             </table>
             <button id="create_button" class="button">Create</button>
@@ -88,6 +89,17 @@
     <div id="game_code">
     </div>
 
+    <div id="info-view">
+    </div>
+
+    <div class="main-board-container">
+        <div class="board-container">
+
+        </div>
+        <div class="player-board">
+
+        </div>
+    </div>
     <canvas id="paper">
         Your browser needs to support canvas for this to work!
     </canvas>

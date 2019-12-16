@@ -37,7 +37,7 @@ module.exports = class GameController {
 
     this.socketController.onEndTurn = () => {
       this._isPlayerTurn = false;
-      this.infoView.drawInfo('it\'s the enemy\'s turn');
+      this.infoView.drawInfo('It\'s the enemy\'s turn');
     };
   }
 
@@ -53,8 +53,13 @@ module.exports = class GameController {
   setPlayerBoats(boats) {
     this.boats = boats;
 
+    boats.forEach((boat) => {
+      boat.points.forEach((point) => {
+        this.playerGameView.addMarker(new Marker(point.x, point.y, MARKER_TYPE.PLAYER_BOAT));
+      });
+    });
+
     this.playerGameView.boats = boats;
-    this.playerGameView.draw();
   }
 
   onBoardHited(x, y, touched, killed, lastBoatTouched) {
@@ -70,7 +75,6 @@ module.exports = class GameController {
     }
 
     this.playerGameView.addMarker(marker);
-    this.playerGameView.draw();
   }
 
   onNewMarker(x, y, touched, killed, lastBoatTouched) {
@@ -86,6 +90,5 @@ module.exports = class GameController {
     }
 
     this.gameView.addMarker(marker);
-    this.gameView.draw();
   }
 };

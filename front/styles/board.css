@@ -1,0 +1,79 @@
+.main-board-container,
+.player-board ,
+.board-container,
+.board,
+.board-row,
+.board-row-header{
+    display: flex;
+}
+
+.main-board-container,
+.player-board,
+.board-container,
+.board-row-header,
+.board-row {
+    flex-direction: row;
+}
+
+.player-board,
+.board,
+.board-row,
+.square,
+.square-header {
+    flex: 1 1 auto;
+}
+
+.row-square-header {
+    width: 35px;
+}
+
+.player-board,
+.board-container{
+    align-items: center;
+    justify-content: center;
+}
+
+.board-row-header {
+    height: 30px;
+}
+
+.square-header,
+.row-square-header {
+    text-align: center;
+    color: white;
+}
+
+.main-board-container {
+    max-height: 60%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.board-container {
+    flex: 3 1 auto;
+    height: 60vh;
+}
+
+.board {
+    flex-direction: column;
+    margin: 5px;
+    max-width: 60vh;
+}
+
+.square {
+    background: #11513f;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    background-size: cover;
+}
+
+.square img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.board-container .square:hover {
+    background: #15634d;
+    background-size: cover;
+}
