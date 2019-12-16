@@ -50,6 +50,10 @@ module.exports = class BoardGenerator {
           excluded.push({ x: p.x - 1, y: p.y });
           excluded.push({ x: p.x, y: p.y + 1 });
           excluded.push({ x: p.x, y: p.y - 1 });
+          excluded.push({ x: p.x - 1, y: p.y - 1 });
+          excluded.push({ x: p.x + 1, y: p.y - 1 });
+          excluded.push({ x: p.x + 1, y: p.y + 1 });
+          excluded.push({ x: p.x - 1, y: p.y + 1 });
         }
       });
     });
