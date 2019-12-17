@@ -16,8 +16,11 @@ module.exports = (io) => {
     socket.on(SOCKET_EVENTS.CREATE_GAME, ({ pseudo, type }) => {
       const gameCode = gameController.createGame(pseudo, type, socket);
       lastGameCode = gameCode;
-      socket.emit(SOCKET_EVENTS.GAME_CODE, gameCode);
-      updateJoinableGames();
+
+      if (!gameController.isGameStarted(lastGameCode)) {
+        socket.emit(SOCKET_EVENTS.GAME_CODE, gameCode);
+        updateJoinableGames();
+      }
     });
 
     socket.on(SOCKET_EVENTS.JOIN_GAME, ({ pseudo, id }) => {

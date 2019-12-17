@@ -1,4 +1,6 @@
 const Game = require('./models/game');
+const Player = require('./models/player');
+const AIPlayer = require('./models/ai-player');
 
 module.exports = class GameController {
   constructor() {
@@ -11,12 +13,17 @@ module.exports = class GameController {
     const code = newGame.code;
 
     this.games[code] = newGame;
+    if (this.games[code].isAIGame()) {
+      newGame.addPlayer(new AIPlayer());
+
+      this.startGame(code);
+    }
 
     return code;
   }
 
   joinGame(pseudo, socket, id) {
-    this.games[id].addPlayer(pseudo, socket);
+    this.games[id].addPlayer(new Player(pseudo, socket));
   }
 
   canGameStart(code) {

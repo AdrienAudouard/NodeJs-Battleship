@@ -1,71 +1,58 @@
-const randomInt = require('../utils/random-int');
-const BoardGenerator = require('../utils/board-generator');
+const SOCKET_EVENTS = require('../utils/socket-events');
+const Playable = require('./playable');
 
-module.exports = class Player {
+module.exports = class Player extends Playable {
   constructor(pseudo, socket) {
-    this.pseudo = pseudo;
+    super(pseudo);
+
     this.socket = socket;
-    this.board = [];
-    this.lastBoatTouched = -1;
+    this._setListeners();
   }
 
-  isDead() {
-    for(let i = 0; i < this.board.length; i++) {
-      const points = this.board[i].points;
-
-      for(let j = 0; j < points.length; j++) {
-        if (!points[j].hited) {
-          return false;
-        }
-      }
-    }
-
-    return true;
+  _setListeners() {
+    this.socket.on(SOCKET_EVENTS.NEW_MARKER, ({x, y}) => {
+      this.onNewMarker(x, y);
+    });
   }
 
-  generateBoard(boats, boatCannotTouch, boardSize = 10) {
-    const boardGenerator = new BoardGenerator();
-    this.board = boardGenerator.generateBoard(boats, boatCannotTouch, boardSize);
+  startLoading() {
+    this.socket.emit(SOCKET_EVENTS.LOADING);
   }
 
-  touchABoat(x, y) {
-    const boat = this.board.filter((boat, index) => {
-      for(let j = 0; j < boat.points.length; j++) {
-        const point = boat.points[j];
-        if (point.x === x && point.y === y) {
-          this.lastBoatTouched = index;
-          return true;
-        }
-      }
-
-      return false;
-    })[0];
-
-    for(let j = 0; j < boat.points.length; j++) {
-      const point = boat.points[j];
-
-      if (point.x === x && point.y === y) {
-        boat.points[j].hited = true;
-      }
-    }
-
-    const hitedPointsCount = boat.points.filter((p) => p.hited).length;
-
-    return hitedPointsCount === boat.points.length
+  startGame(boardSize) {
+    this.socket.emit(SOCKET_EVENTS.GAME_START, {board: this.board, boardSize: boardSize});
   }
 
-  hasTouchedABoat(x, y) {
-    for(let i = 0; i < this.board.length; i++) {
-      const boat = this.board[i];
-
-      for(let j = 0; j < boat.points.length; j++) {
-        const point = boat.points[j];
-        if (point.x === x && point.y === y) {
-          return true;
-        }
-      }
-    }
-
-    return false;
+  boardHitted(x, y, touched, killedBoat, lastBoatTouched) {
+    this.socket.emit(SOCKET_EVENTS.BOARD_HITED, {x, y, touched, killed: killedBoat, lastBoatTouched});
   }
+
+  newMarker(x, y, touched, killedBoat, lastBoatTouched) {
+    this.socket.emit(SOCKET_EVENTS.NEW_MARKER, {x, y, touched, killed: killedBoat, lastBoatTouched});
+  }
+
+  loose() {
+    this.socket.emit(SOCKET_EVENTS.LOOSE);
+  }
+
+  win() {
+    this.socket.emit(SOCKET_EVENTS.WIN);
+  }
+
+  play() {
+    this.socket.emit(SOCKET_EVENTS.PLAYER_TURN);
+  }
+
+  endTurn() {
+    this.socket.emit(SOCKET_EVENTS.PLAYER_END_TURN);
+  }
+
+  clearListeners() {
+    this.socket.removeAllListeners(SOCKET_EVENTS.NEW_MARKER);
+  }
+
+  endGameWithError(msg) {
+    this.socket.emit(SOCKET_EVENTS.GAME_END_WITH_ERROR, msg);
+  }
+
 };
