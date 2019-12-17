@@ -9,7 +9,7 @@ module.exports = class AiPlayer extends Playable {
     this.targets = [];
     this.mode = AI_MODE.HUNT;
     this.potentialsTargets = [];
-
+    this.hittedButNotKilled = [];
   }
 
   startGame(boardSize) {
@@ -29,8 +29,10 @@ module.exports = class AiPlayer extends Playable {
   newMarker(x, y, touched, killedBoat, lastBoatTouched, boatCannotTouch, lastBoatKilledPoints) {
     super.newMarker(x, y, touched, killedBoat, lastBoatTouched, boatCannotTouch, lastBoatKilledPoints);
 
-    if (lastBoatKilledPoints && boatCannotTouch) {
-      this.filterTargetsWithKilledBoat(lastBoatKilledPoints);
+    if (lastBoatKilledPoints) {
+      this.updateTargets(lastBoatKilledPoints, boatCannotTouch);
+    } else if(touched) {
+      this.hittedButNotKilled.push({x, y});
     }
 
     if (touched) {
@@ -43,6 +45,19 @@ module.exports = class AiPlayer extends Playable {
     } else if (this.potentialsTargets.length === 0) {
       this.mode = AI_MODE.HUNT;
     }
+  }
+
+  updateTargets(lastBoatKilledPoints, boatCannotTouch) {
+    this.updateHiitedButNotKilled(lastBoatKilledPoints);
+    if (boatCannotTouch) {
+      this.filterTargetsWithKilledBoat(lastBoatKilledPoints);
+    }
+  }
+
+  updateHiitedButNotKilled(lastBoatKilledPoints) {
+    lastBoatKilledPoints.forEach((p) => {
+      this.hittedButNotKilled = this.hittedButNotKilled.filter((el) => p.x !== el.x || p.y !== el.y);
+    });
   }
 
   filterTargetsWithKilledBoat(killedBoat) {
@@ -106,11 +121,52 @@ module.exports = class AiPlayer extends Playable {
   }
 
   _targetPlay() {
-    const index = randomInt(this.potentialsTargets.length);
-    const target = this.potentialsTargets[index];
+    let target = null;
+
+    const shouldPreferHorizontal = this._shouldPreferHorizontal();
+    const shouldPreferVertical = this._shouldPreferVertical();
+
+    console.log(shouldPreferHorizontal);
+    console.log(shouldPreferVertical);
+    console.table(this.hittedButNotKilled);
+
+    if (shouldPreferHorizontal) {
+      target = this.potentialsTargets.filter((el) => el.y === shouldPreferHorizontal)[0];
+    } else if (shouldPreferVertical) {
+      target = this.potentialsTargets.filter((el) => el.x === shouldPreferVertical)[0];
+    }
+
+    if (target === null || target === undefined) {
+      const index = randomInt(this.potentialsTargets.length);
+      target = this.potentialsTargets[index];
+    }
 
     this.potentialsTargets = this.potentialsTargets.filter((t) => t.x !== target.x || t.y !== target.y);
 
     return target;
+  }
+
+  _shouldPreferHorizontal() {
+    const sortedHitted = this.hittedButNotKilled.sort((o1, o2) => o1.y - o2.y);
+
+    for(let i = 0; i < sortedHitted.length - 1; i++) {
+      if (sortedHitted[i].y === sortedHitted[i+ 1].y) {
+        return sortedHitted[i].y;
+      }
+    }
+
+    return null;
+  }
+
+  _shouldPreferVertical() {
+    const sortedHitted = this.hittedButNotKilled.sort((o1, o2) => o1.x - o2.x);
+
+    for(let i = 0; i < sortedHitted.length - 1; i++) {
+      if (sortedHitted[i].x === sortedHitted[i+ 1].x) {
+        return sortedHitted[i].x;
+      }
+    }
+
+    return null;
   }
 };
