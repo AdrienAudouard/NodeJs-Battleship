@@ -33,8 +33,6 @@ module.exports = class GameView {
   }
 
   draw() {
-    const letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
     const boardContainer = document.getElementsByClassName(this._container)[0];
 
     const board = document.createElement('div');
@@ -70,9 +68,7 @@ module.exports = class GameView {
     square.className = 'square';
 
     square.onclick = () => {
-      if (this._onClick(j, i)) {
-        square.onclick = null;
-      }
+      this._onClick(j , i);
     };
 
     return square;
