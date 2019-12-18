@@ -1,0 +1,36 @@
+.container {
+    position: fixed;
+    background: white;
+    height: 400px;
+    width: 1100px;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -550px;
+}
+
+.btn-create:hover {
+    background-position: right center; /* change the direction of the change here */
+}
+
+.btn-create {
+    transition: 0.5s;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px #eee;
+    color: white;
+    border: none;
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+}
+
+.game-col {
+    max-height: 350px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.list-group-item {
+    cursor: pointer;
+}

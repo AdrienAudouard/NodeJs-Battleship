@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759eca86-3f35-4b9a-82c4-f1297b0b6dbf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/front/styles/game-form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Bataille Navale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bataille Navale.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/models/ai-player.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/models/ai-player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/scripts/controllers/game-form-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/scripts/controllers/game-form-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +81,7 @@
       <workItem from="1576141785047" duration="35856000" />
       <workItem from="1576359413701" duration="11692000" />
       <workItem from="1576493261752" duration="23296000" />
-      <workItem from="1576587268447" duration="3580000" />
+      <workItem from="1576587268447" duration="8748000" />
     </task>
     <servers />
   </component>

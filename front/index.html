@@ -4,80 +4,86 @@
     <meta charset="utf-8" />
     <title>Battleship</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
     <!-- The styles -->
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/board.css" />
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="styles/game-form.css" />
 </head>
 
 <body>
-    <div class="alert" id="alert-template">
+    <div class="alert-message" id="alert-template">
         <h1 class="message-title">New message</h1>
         <p class="message-text">Message</p>
         <button class="message-button">Ok</button>
     </div>
-    <div id="form">
-        <div id="join-form">
-            <h1>Create a game</h1>
-            <table>
-                <tr>
-                    <td>Pseudo</td>
-                    <td><input id="create_pseudo" name="create_pseudo" type="text"></td>
-                </tr>
-                <tr>
-                    <td>Game type</td>
-                    <td>
-                        <select name="game-type" id="game_type">
-                            <option value="">--Please choose an option--</option>
-                            <option value="2-4-3-2-2" selected>2 players - 4, 3, 2, 2</option>
-                            <option value="2-6-5-4-3-2">2 players - 6, 5, 4, 3, 2</option>
-                            <option value="2-2-2-2-2-2-2">2 players - 2, 2, 2, 2, 2, 2</option>
-                            <option value="2-2-2-2-2-2-2">2 players - 2, 2, 2, 2, 2, 2</option>
-                            <option value="2-1">2 players - 1</option>
-                            <option value="1-6-5-4-3-2">1 player vs 1 AI - 6, 5, 4, 3, 2</option>
+
+    <div class="container" id="game-form">
+        <div class="row m-3">
+            <div class="col-sm">
+                <h3 class="text-center mb-4">Create a game</h3>
+                <div class="form-group row">
+                    <label for="create_pseudo" class="col-sm-5 col-form-label">Pseudo</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="create_pseudo" placeholder="Pseudo">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">Game type</div>
+                    <div class="col-sm-7">
+                        <select class="form-control" id="game_type">
+                            <option value="2">1 vs 1</option>
+                            <option value="1">1 vs AI</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Board size</td>
-                    <td>
-                        <select name="board-size" id="board-size">
-                            <option value="8">8 x 8</option>
-                            <option value="10" selected>10 x 10</option>
-                            <option value="12">12 x 12</option>
-                            <option value="14">14 x 14</option>
-                            <option value="16">16 x 16</option>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">Boats</div>
+                    <div class="col-sm-7">
+                        <select class="form-control" id="game_boats">
+                            <option value="1">1</option>
+                            <option selected value="4-3-2-2">4, 3, 2, 2</option>
+                            <option value="6-5-4-3-2">6, 5, 4, 3, 2</option>
+                            <option value="2-2-2-2-2-2">2, 2, 2, 2, 2, 2</option>
+                            <option value="6-6-6-6-6-6">6, 6, 6, 6, 6, 6</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Boats cannot touch each other</td>
-                    <td><input id="boat-cannot-touch" type="checkbox" checked></td>
-                </tr>
-            </table>
-            <button id="create_button" class="button">Create</button>
-            <h1>Join a game</h1>
-            <table>
-                <tr>
-                    <td>Pseudo</td>
-                    <td><input id="join_pseudo" name="join_pseudo" type="text"></td>
-                </tr>
-                <tr>
-                    <td>Game ID</td>
-                    <td>
-                        <input id="game_id" name="game_id" type="text"></td>
-                    </td>
-                </tr>
-            </table>
-            <button id="join_button" class="button">Join</button>
-        </div>
-        <div id="current-game-form">
-            <h1>Available games</h1>
-            <br />
-            <ul id="game-list"></ul>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">Board size</div>
+                    <div class="col-sm-7">
+                        <select class="form-control" id="board-size">
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="14">14</option>
+                            <option value="16">16</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">Boats cannot touch each other	</div>
+                    <div class="col-sm-7">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="boat-cannot-touch">
+                            <label class="form-check-label" for="boat-cannot-touch"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-7">
+                        <button id="create_button" class="btn btn-create mb-2 pl-4 pr-4 pt-2 pb-2">Create</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm game-col">
+                <h3 class="text-center mb-4">Join a game</h3>
+                <ul class="list-group list-group-flush" id="game-list">
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -104,11 +110,16 @@
     <canvas id="paper">
         Your browser needs to support canvas for this to work!
     </canvas>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- JavaScript includes. Notice that socket.io.js is served by node.js -->
     <script src="scripts/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.8.0.js"
             integrity="sha256-00Fh8tkPAe+EmVaHFpD+HovxWk7b97qwqVi7nLvjdgs="
             crossorigin="anonymous"></script>
+
     <script src="main.js"></script>
 
 </body>

@@ -8,7 +8,7 @@
     background: #1a2c3d;
 }
 
-#form, #game_code, #end-game {
+#game_code, #end-game {
     position: fixed;
     background-color: rgb(255, 255, 255);
     width: 700px;
@@ -26,11 +26,14 @@
 #game_code, #end-game {
     display: none;
     font-size: 1.5em;
+}
+
+#end-game {
     line-height: 50px;
     height: 50px;
 }
 
-#end-game {
+#end-game, #game_code {
     height: 90px;
 }
 
@@ -111,7 +114,7 @@ tr {
     cursor: pointer;
 }
 
-.alert {
+.alert-message {
     display: none;
     position: fixed;
     top: 20px;
@@ -126,19 +129,19 @@ tr {
     border-style: solid;
 }
 
-.alert h1,
-.alert p {
+.alert-message h1,
+.alert-message p {
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.alert h1 {
+.alert-message h1 {
     font-size: 1.4em;
     margin-bottom: 7px;
     font-weight: bold;
 }
 
-.alert button {
+.alert-message button {
     margin-top: 20px;
     float: right;
     font-size: 1.2em;

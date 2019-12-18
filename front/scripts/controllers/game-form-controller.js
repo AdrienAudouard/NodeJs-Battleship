@@ -6,14 +6,11 @@ module.exports = class GameFormController {
     this.onCreate = (pseudo, type) => {};
     this.onReplay = (pseudo) => {};
 
-    this._form = document.getElementById('form');
+    this._form = document.getElementById('game-form');
     this._createPseudoInput = document.getElementById('create_pseudo');
     this._gameTypeInput = document.getElementById('game_type');
+    this._gameBoatsInput = document.getElementById('game_boats');
     this._createButton = document.getElementById('create_button');
-    this._joinPseudoInput = document.getElementById('join_pseudo');
-    this._gameIDInput = document.getElementById('game_id');
-    this._joinButton = document.getElementById('join_button');
-    this._gameCodeDiv = document.getElementById('game_code');
     this._endGameDiv = document.getElementById('end-game');
     this._endGameTitle = document.getElementById('end-game-title');
     this._endGameReplayButton = document.getElementById('replay_button');
@@ -21,6 +18,7 @@ module.exports = class GameFormController {
     this._boatCannotTouch = document.getElementById('boat-cannot-touch');
     this._boardSizeInput = document.getElementById('board-size');
     this._gameList = document.getElementById('game-list');
+    this._gameCodeDiv = document.getElementById('game_code');
 
     this._endGameReplayButton.onclick = () => {
       const pseudo = localStorage.getItem('pseudo');
@@ -38,37 +36,23 @@ module.exports = class GameFormController {
     this._createButton.onclick = () => {
       const pseudo = this._createPseudoInput.value;
       const boardSize = this._boardSizeInput.value;
+      const boats = this._gameBoatsInput.value;
+
       const boatCannotTouch = this._boatCannotTouch.checked;
       let type = this._gameTypeInput.value;
 
-      if (type === '' || pseudo === '') {
+      if (type === '' || pseudo === '' || boats === '') {
         const message = new MessageView('Please fill pseudo and type inputs', 'Error');
         message.show();
 
         return;
       }
 
-      type = `${type}-${boatCannotTouch}-${boardSize}`;
+      type = `${type}-${boats}-${boatCannotTouch}-${boardSize}`;
 
       localStorage.setItem('pseudo', pseudo);
 
       this.onCreate(pseudo, type);
-    };
-
-    this._joinButton.onclick = () => {
-      const pseudo = this._joinPseudoInput.value;
-      const id = this._gameIDInput.value;
-
-      if (id === '' || pseudo === '') {
-        const message = new MessageView('Please fill pseudo and game id inputs', 'Error');
-        message.show();
-
-        return;
-      }
-
-      localStorage.setItem('pseudo', pseudo);
-
-      this.onJoin(pseudo, id);
     };
 
     this.readLocalStorage();
@@ -79,7 +63,6 @@ module.exports = class GameFormController {
 
     if (pseudo !== undefined) {
       this._createPseudoInput.value = pseudo;
-      this._joinPseudoInput.value = pseudo;
     }
   }
 
@@ -87,7 +70,8 @@ module.exports = class GameFormController {
     this._gameList.innerHTML = '';
     games.forEach((game) => {
       const item = document.createElement('li');
-      item.innerHTML = `${game.host} <button class="join-button">Join</button>`;
+      item.innerHTML = `<b>${game.host}</b> <i>#${game.code}</i> <button class="join-button">Join</button>`;
+      item.className = 'list-group-item';
 
       item.addEventListener('click', () => {
         this.onJoin(this.getPseudo(), game.code);
@@ -98,7 +82,7 @@ module.exports = class GameFormController {
   }
 
   getPseudo() {
-    return this._joinPseudoInput.value;
+    return this._createPseudoInput.value;
   }
 
   showGameCode(code) {
