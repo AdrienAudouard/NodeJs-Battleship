@@ -126,10 +126,6 @@ module.exports = class AiPlayer extends Playable {
     const shouldPreferHorizontal = this._shouldPreferHorizontal();
     const shouldPreferVertical = this._shouldPreferVertical();
 
-    console.log(shouldPreferHorizontal);
-    console.log(shouldPreferVertical);
-    console.table(this.hittedButNotKilled);
-
     if (shouldPreferHorizontal) {
       target = this.potentialsTargets.filter((el) => el.y === shouldPreferHorizontal)[0];
     } else if (shouldPreferVertical) {
