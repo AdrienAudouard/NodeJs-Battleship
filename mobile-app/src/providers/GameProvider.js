@@ -80,12 +80,16 @@ class GameProvider {
         };
 
         this.provider.onWin = () => {
-            this.showAlertAndGoHome('You won the game. Well done champion 👑');
+            this.showAlertAndGoHome( 'Well done champion 👑', 'You won the game');
         };
 
         this.provider.onLoose = () => {
             this.showAlertAndGoHome('You lost the game.')
         };
+
+        this.provider.onGameEndWithError = (msg) => {
+            this.showAlertAndGoHome(msg, 'Error');
+        }
     }
 
     createMarker(touched, killed, x, y, lastBoatTouched) {
@@ -98,12 +102,12 @@ class GameProvider {
         return newMarker;
     }
 
-    showAlertAndGoHome(message) {
-        Alert.alert('Message', message, [
+    showAlertAndGoHome(message, title = 'Message') {
+        Alert.alert(title, message, [
             {
                 text: 'Ok', onPress: () => { goHome(); }
             }
-        ])
+        ]);
     }
 
     initPlayerMarker(game) {
@@ -129,6 +133,10 @@ class GameProvider {
         if (this.isPlayerTurn) {
             this.provider.addNewMarker(x, y);
         }
+    }
+
+    quitGame() {
+        this.provider.quitGame();
     }
 }
 
