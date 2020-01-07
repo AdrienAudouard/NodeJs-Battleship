@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "battleship-shared-module": "file:../battleship-shared-module",
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
   }

@@ -19,7 +19,7 @@ window.onload = () => {
   AssetsLoader.load([
     { id: MARKER_TYPE.TARGET_NO_HIT, url: '/assets/black-circle.png' },
     { id: MARKER_TYPE.TARGET_HIT, url: '/assets/red-cross.png' },
-    { id: MARKER_TYPE.PLAYER_BOAT, url: '/assets/square-ship.png' },
+    { id: MARKER_TYPE.PLAYER_BOAT, url: '/assets/player-boat.png' },
     { id: MARKER_TYPE.KILLED_BOAT, url: '/assets/jeremy.jpg' }
   ], () => {
     socketController = new SocketController();

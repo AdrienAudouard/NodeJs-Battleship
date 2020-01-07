@@ -1,4 +1,4 @@
-const SOCKET_EVENTS = require('../utils/socket-events');
+const SOCKET_EVENTS = require('battleship-shared-module/src/socket-events');
 const Playable = require('./playable');
 
 module.exports = class Player extends Playable {

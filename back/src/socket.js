@@ -1,49 +1,58 @@
 const GameController = require('./game-controller');
-const SOCKET_EVENTS = require('./utils/socket-events');
+const {SocketEvents} = require('battleship-shared-module');
 
 module.exports = (io) => {
+  console.log(SocketEvents);
   const gameController = new GameController();
 
   const updateJoinableGames = () => {
-    io.emit(SOCKET_EVENTS.JOINABLE_GAMES, gameController.getNotFullGames());
+    io.emit(SocketEvents.JOINABLE_GAMES, gameController.getNotFullGames());
   };
 
-  io.on(SOCKET_EVENTS.CONNECTION, (socket) => {
+  io.use((socket, next) => {
+    next();
+  });
+
+  io.on(SocketEvents.CONNECTION, (socket) => {
     let lastGameCode;
 
-    socket.emit(SOCKET_EVENTS.JOINABLE_GAMES, gameController.getNotFullGames());
+    socket.emit(SocketEvents.JOINABLE_GAMES, gameController.getNotFullGames());
 
-    socket.on(SOCKET_EVENTS.CREATE_GAME, ({ pseudo, type }) => {
+    socket.on(SocketEvents.ASK_JOINABLE_GAMES, () => {
+      socket.emit(SocketEvents.JOINABLE_GAMES, gameController.getNotFullGames());
+    });
+
+    socket.on(SocketEvents.CREATE_GAME, ({ pseudo, type }) => {
       const gameCode = gameController.createGame(pseudo, type, socket);
       lastGameCode = gameCode;
 
       if (!gameController.isGameStarted(lastGameCode)) {
-        socket.emit(SOCKET_EVENTS.GAME_CODE, gameCode);
+        socket.emit(SocketEvents.GAME_CODE, gameCode);
         updateJoinableGames();
       }
     });
 
-    socket.on(SOCKET_EVENTS.JOIN_GAME, ({ pseudo, id }) => {
+    socket.on(SocketEvents.JOIN_GAME, ({ pseudo, id }) => {
       if (gameController.gameExists(id)) {
         if (gameController.canJoin(id)) {
           lastGameCode = id;
           gameController.joinGame(pseudo, socket, id);
-          socket.emit(SOCKET_EVENTS.GAME_CODE, id);
+          socket.emit(SocketEvents.GAME_CODE, id);
           updateJoinableGames();
 
           if (gameController.canGameStart(id)) {
             gameController.startGame(id);
           }
         } else {
-          socket.emit(SOCKET_EVENTS.JOIN_ERROR);
+          socket.emit(SocketEvents.JOIN_ERROR);
         }
 
       } else {
-        socket.emit(SOCKET_EVENTS.JOIN_ERROR);
+        socket.emit(SocketEvents.JOIN_ERROR);
       }
     });
 
-    socket.on(SOCKET_EVENTS.DISCONNECT, () => {
+    socket.on(SocketEvents.DISCONNECT, () => {
       if (lastGameCode === undefined) {
         return;
       }
@@ -59,9 +68,9 @@ module.exports = (io) => {
       }
     });
 
-    socket.on(SOCKET_EVENTS.REPLAY, (pseudo) => {
+    socket.on(SocketEvents.REPLAY, (pseudo) => {
       if (lastGameCode === undefined) {
-        socket.emit(SOCKET_EVENTS.JOIN_ERROR);
+        socket.emit(SocketEvents.JOIN_ERROR);
         return;
       }
 

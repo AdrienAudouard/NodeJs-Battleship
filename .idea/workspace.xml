@@ -2,18 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759eca86-3f35-4b9a-82c4-f1297b0b6dbf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/front/styles/game-form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Bataille Navale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bataille Navale.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/battleship-shared-module/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/ios/Battleship-Bridging-Header.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/ios/File.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/black-circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/jeremy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/player-boat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/red-cross.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/1055-world-locations.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/12548-radar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/1666-radar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/40-loading.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/christmas.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/loading.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/run-hamster-run.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/snowman.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/models/Colors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/models/Images.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/models/Marker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/models/MarkerType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/navigation/Navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/navigation/Screens.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/providers/AssetsProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/providers/GameProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/providers/SocketProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/providers/StorageProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/GameScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/HomeScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/JoinScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/LoadingScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/widgets/GameBoard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/widgets/NoGameFound.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/scripts/controllers/game-form-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/scripts/controllers/game-form-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/public/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/public/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/models/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/models/player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/socket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/utils/socket-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/battleship-shared-module/src/socket-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/assets/square-ship.png" beforeDir="false" afterPath="$PROJECT_DIR$/front/assets/player-boat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/scripts/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -27,6 +77,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1UsOLdSeKHGF7E7TszW6jRmjLVZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -39,8 +95,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mobile-app/src/assets/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -49,11 +106,19 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mobile-app/src/assets/images" />
       <recent name="$PROJECT_DIR$/front/assets" />
-      <recent name="$PROJECT_DIR$/front/red-square-ship" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mobile-app/android" />
+      <recent name="$PROJECT_DIR$/mobile-app/src/assets/images" />
+      <recent name="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations" />
+      <recent name="$PROJECT_DIR$/mobile-app/src/assets" />
+      <recent name="$PROJECT_DIR$/shared-module/src" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -81,7 +146,16 @@
       <workItem from="1576141785047" duration="35856000" />
       <workItem from="1576359413701" duration="11692000" />
       <workItem from="1576493261752" duration="23296000" />
-      <workItem from="1576587268447" duration="8748000" />
+      <workItem from="1576587268447" duration="9397000" />
+      <workItem from="1576769241158" duration="15000" />
+      <workItem from="1577127906439" duration="5760000" />
+      <workItem from="1577285775745" duration="2822000" />
+      <workItem from="1577289798482" duration="774000" />
+      <workItem from="1577554497694" duration="136000" />
+      <workItem from="1577627764427" duration="14433000" />
+      <workItem from="1577726711333" duration="4368000" />
+      <workItem from="1578317850840" duration="18989000" />
+      <workItem from="1578393892672" duration="626000" />
     </task>
     <servers />
   </component>
@@ -89,21 +163,57 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578320864621">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1578320864621" />
     <state x="431" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576577069946">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="431" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1576577069946" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1576516192330">
+    <state x="569" y="357" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577137906718">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1576516192330" />
-    <state x="378" y="93" width="683" height="714" key="find.popup" timestamp="1576664337302">
+    <state x="569" y="357" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1577137906718" />
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578386675212">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="378" y="93" width="683" height="714" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1576664337302" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1576527253547">
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1578386675212" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1578393884530">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1576527253547" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1578393884530" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1578393884530">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1578393884530" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1578393884529">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1578393884529" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1578393884530">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1578393884530" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1577636514106">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1577636514105" />
+    <state x="462" y="301" key="cloudConfig.PluginsDialog" timestamp="1578337038123">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="462" y="301" key="cloudConfig.PluginsDialog/0.0.1440.900@0.0.1440.900" timestamp="1578337038123" />
+    <state x="483" y="301" key="cloudConfig.SelfSettingsDialog" timestamp="1578337030409">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="483" y="301" key="cloudConfig.SelfSettingsDialog/0.0.1440.900@0.0.1440.900" timestamp="1578337030409" />
+    <state x="378" y="93" width="748" height="714" key="find.popup" timestamp="1578392298073">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="378" y="93" width="748" height="714" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1578392298073" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1578394416140">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1578394416140" />
   </component>
 </project>
