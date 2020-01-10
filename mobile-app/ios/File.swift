@@ -1,9 +1,9 @@
 //
 //  File.swift
-//  Battleship
+//  BattleShipper
 //
-//  Created by Adrien Audouard on 29/12/2019.
-//  Copyright © 2019 Facebook. All rights reserved.
+//  Created by Adrien Audouard on 07/01/2020.
+//  Copyright © 2020 Facebook. All rights reserved.
 //
 
 import Foundation

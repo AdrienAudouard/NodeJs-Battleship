@@ -52,6 +52,22 @@ module.exports = (io) => {
       }
     });
 
+    socket.on(SocketEvents.QUIT_GAME, () => {
+      if (lastGameCode === undefined) {
+        return;
+      }
+
+      if (gameController.gameExists(lastGameCode)) {
+        if (!gameController.isGameStarted(lastGameCode)) {
+          if (gameController.removePlayerFromGame(lastGameCode, socket)) {
+            updateJoinableGames();
+          }
+        } else {
+          gameController.endGameWithError(lastGameCode);
+        }
+      }
+    });
+
     socket.on(SocketEvents.DISCONNECT, () => {
       if (lastGameCode === undefined) {
         return;

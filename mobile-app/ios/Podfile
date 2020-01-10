@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'Battleship' do
-  # Pods for Battleship
+target 'BattleShipper' do
+  # Pods for BattleShipper
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -37,15 +37,13 @@ target 'Battleship' do
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'ReactNativeNavigation', :podspec => '../node_modules/react-native-navigation/ReactNativeNavigation.podspec'
 
-
-
-
-
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
-  target 'BattleshipTests' do
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+  pod 'RNFirebase/Crashlytics', :path => '../node_modules/react-native-firebase/ios'
+
+  target 'BattleShipperTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -53,10 +51,10 @@ target 'Battleship' do
   use_native_modules!
 end
 
-target 'Battleship-tvOS' do
-  # Pods for Battleship-tvOS
+target 'BattleShipper-tvOS' do
+  # Pods for BattleShipper-tvOS
 
-  target 'Battleship-tvOSTests' do
+  target 'BattleShipper-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

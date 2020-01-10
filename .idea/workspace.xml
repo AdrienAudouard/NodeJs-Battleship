@@ -2,49 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759eca86-3f35-4b9a-82c4-f1297b0b6dbf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/battleship-shared-module/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/Battleship-Bridging-Header.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/File.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/black-circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/jeremy.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/player-boat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/red-cross.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/1055-world-locations.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/12548-radar.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/1666-radar.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/40-loading.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/christmas.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/loading.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/run-hamster-run.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations/snowman.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/models/Colors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/models/Images.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/models/Marker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/models/MarkerType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/navigation/Navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/navigation/Screens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/providers/AssetsProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/providers/GameProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/providers/SocketProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/providers/StorageProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/GameScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/HomeScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/JoinScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/LoadingScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/widgets/GameBoard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/widgets/NoGameFound.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/android/app/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper-Bridging-Header.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/ios/GoogleService-Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/assets/images/red-square-ship.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/public/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/public/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/models/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/models/player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/utils/socket-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/battleship-shared-module/src/socket-events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/assets/square-ship.png" beforeDir="false" afterPath="$PROJECT_DIR$/front/assets/player-boat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/scripts/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleship-shared-module/dist/socket-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/battleship-shared-module/dist/socket-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/release/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/release/app-release.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/java/com/battleship/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/java/fr/adrienaudouard/battleshipper/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/java/com/battleship/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/java/fr/adrienaudouard/battleshipper/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship-tvOS/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper-tvOS/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship-tvOSTests/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper-tvOSTests/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship.xcodeproj/xcshareddata/xcschemes/Battleship-tvOS.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper.xcodeproj/xcshareddata/xcschemes/Battleship-tvOS.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship.xcodeproj/xcshareddata/xcschemes/Battleship.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper.xcodeproj/xcshareddata/xcschemes/Battleship.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/AppDelegate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Base.lproj/LaunchScreen.xib" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Base.lproj/LaunchScreen.xib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-1024.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-1024.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-20.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-20.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-20@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-20@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-20@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-20@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-29.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-29.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-29@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-29@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-29@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-29@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-40.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-40.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-40@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-40@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-40@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-40@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-60@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-60@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-60@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-60@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-76.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-76.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-76@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-76@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/AppIcon.appiconset/New Project (1)-83.5@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/AppIcon.appiconset/New Project (1)-83.5@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/icon.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/icon.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Images.xcassets/icon.imageset/New Project (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Images.xcassets/icon.imageset/New Project (1).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Battleship/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipper/main.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/BattleshipTests/BattleshipTests.m" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipperTests/BattleshipTests.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/BattleshipTests/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/BattleShipperTests/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/File.swift" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/File.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/models/Images.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/models/Images.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/GameScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/GameScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,16 +123,16 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mobile-app/src/assets/images" />
-      <recent name="$PROJECT_DIR$/front/assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mobile-app/android/app" />
+      <recent name="$PROJECT_DIR$/mobile-app/android/app/src/main/res" />
       <recent name="$PROJECT_DIR$/mobile-app/android" />
       <recent name="$PROJECT_DIR$/mobile-app/src/assets/images" />
       <recent name="$PROJECT_DIR$/mobile-app/src/assets/lottie-animations" />
-      <recent name="$PROJECT_DIR$/mobile-app/src/assets" />
-      <recent name="$PROJECT_DIR$/shared-module/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mobile-app/src/assets/images" />
+      <recent name="$PROJECT_DIR$/front/assets" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -155,7 +169,7 @@
       <workItem from="1577627764427" duration="14433000" />
       <workItem from="1577726711333" duration="4368000" />
       <workItem from="1578317850840" duration="18989000" />
-      <workItem from="1578393892672" duration="626000" />
+      <workItem from="1578393892672" duration="8912000" />
     </task>
     <servers />
   </component>
@@ -167,10 +181,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1578320864621" />
-    <state x="431" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576577069946">
+    <state x="431" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578396325231">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="431" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1576577069946" />
+    <state x="431" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1578396325231" />
     <state x="569" y="357" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577137906718">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -207,13 +221,17 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="483" y="301" key="cloudConfig.SelfSettingsDialog/0.0.1440.900@0.0.1440.900" timestamp="1578337030409" />
+    <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578396112696">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.829@0.23.1440.829" timestamp="1578396112696" />
     <state x="378" y="93" width="748" height="714" key="find.popup" timestamp="1578392298073">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="93" width="748" height="714" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1578392298073" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1578394416140">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1578690876739">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1578394416140" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1578690876739" />
   </component>
 </project>

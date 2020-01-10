@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1077992593984",
+    "firebase_url": "https://battleship-8e01b.firebaseio.com",
+    "project_id": "battleship-8e01b",
+    "storage_bucket": "battleship-8e01b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077992593984:android:bb08cf41860dfb05225da5",
+        "android_client_info": {
+          "package_name": "fr.adrienaudouard.battleshipper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077992593984-dmiqn2vplk0ts9ek75lc96n18mo90bni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt8VOnet1JiszUMFtXdRtSx1rqXEBMwvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077992593984-dmiqn2vplk0ts9ek75lc96n18mo90bni.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1077992593984-pn7cpn1ovq99d00681339o7dkpo9vf79.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "fr.adrienaudouard.battleshipper"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,6 +14,8 @@ class GameScreen extends React.Component {
 
         this.state = {
             playerPoints: [],
+            gameBoardHeight: 100,
+            playerBoardHeight: 100
         }
     }
 
@@ -60,15 +62,27 @@ class GameScreen extends React.Component {
         ]);
     }
 
+    updateBoardsSize(event) {
+        let {height} = event.nativeEvent.layout;
+
+        this.setState({
+            gameBoardHeight: height * 0.45,
+            playerBoardHeight: height * 0.25
+        });
+    }
+
     render() {
         const { boardSize } = this.props;
-        const { playerPoints, ennemyMarkers, isPlayerTurn } = this.state;
+        const { playerPoints, ennemyMarkers, isPlayerTurn, gameBoardHeight, playerBoardHeight } = this.state;
 
         const infoText = isPlayerTurn ? 'It\'s your turn' : 'It\'s the enemy\'s turn';
 
         return (
             <SafeAreaView style={styles.container}>
-                <View style={{flex: 1, flexDirection: 'column', justifyContent: 'space-around', margin: 10}}>
+                <View
+                    style={{flex: 1, flexDirection: 'column', justifyContent: 'space-around', margin: 10}}
+                    onLayout={(event => this.updateBoardsSize(event))}
+                >
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <Button
                             pres
@@ -92,8 +106,8 @@ class GameScreen extends React.Component {
                             backgroundColor="#3d5875" />
                     </View>
                     <Text h3 style={styles.title}>{ infoText }</Text>
-                    <GameBoard size={boardSize} markers={ennemyMarkers} />
-                    <GameBoard maxHeight={200} disableButtons={true} size={boardSize} markers={playerPoints} />
+                    <GameBoard maxHeight={gameBoardHeight} size={boardSize} markers={ennemyMarkers} />
+                    <GameBoard maxHeight={playerBoardHeight} disableButtons={true} size={boardSize} markers={playerPoints} />
                 </View>
             </SafeAreaView>
         );

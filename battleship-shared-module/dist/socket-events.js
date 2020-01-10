@@ -2,6 +2,7 @@
 
 module.exports = {
   GAME_END_WITH_ERROR: 'game_end_with_error',
+  QUIT_GAME: 'quit_game',
   NEW_MARKER: 'new_marker',
   WIN: 'win',
   LOOSE: 'loose',
