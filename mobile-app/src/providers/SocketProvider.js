@@ -1,12 +1,17 @@
 import io from 'socket.io-client';
-import {SOCKET_URL} from "../env";
+import {PLATFORM, SOCKET_URL} from "../env";
 import {goHome} from "../navigation/Navigation";
 import {Alert} from "react-native";
-import {Navigation} from 'react-native-navigation';
 
 class SocketProvider {
   constructor() {
-    const opts = {reconnection: false};
+    const opts = {
+      reconnection: false,
+      query: {
+        platform: PLATFORM
+      },
+    };
+
     this.socket = io(SOCKET_URL, opts);
     this.initCallbacks();
     this.initSocketsListeners();

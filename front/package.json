@@ -11,6 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "battleship-shared-module": "file:../battleship-shared-module"
+  },
   "devDependencies": {
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",

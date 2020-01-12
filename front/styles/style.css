@@ -30,10 +30,10 @@
 
 #end-game {
     line-height: 50px;
-    height: 50px;
+    height: 160px;
 }
 
-#end-game, #game_code {
+#game_code {
     height: 90px;
 }
 

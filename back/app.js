@@ -17,4 +17,5 @@ app.get('**', (req, res) => {
 });
 
 configSockets(io);
+
 console.log(`Magic happens at ${os.hostname()}:${port}`);

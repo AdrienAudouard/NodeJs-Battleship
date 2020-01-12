@@ -1,20 +1,28 @@
 const GameController = require('./game-controller');
+const PlatformController = require('./platform-controller');
 const {SocketEvents} = require('battleship-shared-module');
+const checkVersionHeader = require('./middleware/check-version');
+const checkHeader = require('./middleware/check-header');
 
 module.exports = (io) => {
-  console.log(SocketEvents);
   const gameController = new GameController();
+  const platformController = new PlatformController();
+
+  io.use(checkHeader);
+  io.use(checkVersionHeader);
 
   const updateJoinableGames = () => {
     io.emit(SocketEvents.JOINABLE_GAMES, gameController.getNotFullGames());
   };
 
-  io.use((socket, next) => {
-    next();
-  });
-
   io.on(SocketEvents.CONNECTION, (socket) => {
     let lastGameCode;
+
+    const {platform} = socket.handshake.query;
+
+    if (platform) {
+      platformController.newConnection(platform);
+    }
 
     socket.emit(SocketEvents.JOINABLE_GAMES, gameController.getNotFullGames());
 
@@ -69,6 +77,10 @@ module.exports = (io) => {
     });
 
     socket.on(SocketEvents.DISCONNECT, () => {
+      if (platform) {
+        platformController.newDeconnection(platform);
+      }
+
       if (lastGameCode === undefined) {
         return;
       }

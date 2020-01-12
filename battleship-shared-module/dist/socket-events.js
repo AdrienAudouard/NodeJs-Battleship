@@ -19,5 +19,7 @@ module.exports = {
   DISCONNECT: 'disconnect',
   REPLAY: 'replay',
   LOADING: 'loading',
-  ASK_JOINABLE_GAMES: 'ask_games'
+  ASK_JOINABLE_GAMES: 'ask_games',
+  WRONG_API_VERSION: 'wrong api version',
+  WRONG_HEADER: 'wrong_header'
 };
